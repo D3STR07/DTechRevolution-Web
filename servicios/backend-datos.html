@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend, Datos y Automatización | DTechRevolution | Lo que hace funcionar todo</title>
+    <meta name="description" content="La parte invisible pero esencial que hace que todo funcione. Organizamos tu información y automatizamos procesos para que tu negocio fluya.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://api.dicebear.com/7.x/shapes/svg?seed=DTech">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/index.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos específicos para backend-datos.html */
+        
+        /* Hero específico - más serio y confiable */
+        .backend-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(10, 10, 15, 0.97) 0%, rgba(21, 21, 33, 0.97) 100%);
+        }
+        
+        .backend-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .backend-hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+        
+        @media (min-width: 992px) {
+            .backend-hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .backend-hero-text {
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .backend-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .backend-breadcrumb a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .backend-breadcrumb a:hover {
+            color: var(--color-secondary);
+        }
+        
+        .backend-breadcrumb i {
+            font-size: 0.7rem;
+        }
+        
+        .backend-main-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-md);
+        }
+        
+        .backend-subtitle {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            color: var(--color-secondary);
+            font-style: italic;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .backend-hero-description {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .backend-hero-visual {
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .backend-hero-icon {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .backend-hero-number {
+            font-family: var(--font-heading);
+            font-size: 12rem;
+            font-weight: 900;
+            color: var(--color-secondary);
+            opacity: 0.08;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+            z-index: 1;
+        }
+        
+        /* Sección: La parte invisible */
+        .backend-invisible {
+            padding: var(--space-2xl) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .backend-section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .backend-section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .backend-section-subtitle {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .invisible-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .invisible-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .invisible-highlight {
+            background: rgba(59, 130, 246, 0.1);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-secondary);
+            margin: var(--space-xl) 0;
+        }
+        
+        .invisible-highlight p {
+            font-size: 1.3rem;
+            color: var(--color-text);
+            font-style: italic;
+            margin: 0;
+            text-align: center;
+        }
+        
+        /* Sección: ¿Qué hacemos aquí? */
+        .backend-what-we-do {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .what-we-do-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .what-we-do-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .what-we-do-visual {
+            text-align: center;
+        }
+        
+        .what-we-do-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: var(--color-secondary);
+            font-size: 2.5rem;
+        }
+        
+        .what-we-do-list {
+            list-style: none;
+        }
+        
+        .what-we-do-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            transition: transform 0.3s ease;
+        }
+        
+        .what-we-do-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .what-we-do-item i {
+            color: var(--color-secondary);
+            font-size: 1.5rem;
+            margin-top: 2px;
+        }
+        
+        .what-we-do-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xs);
+            color: var(--color-text);
+        }
+        
+        .what-we-do-item p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Problemas que arreglamos */
+        .backend-problems {
+            padding: var(--space-2xl) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .backend-problems-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        @media (min-width: 768px) {
+            .backend-problems-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .backend-problems-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .backend-problem-card {
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .backend-problem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-secondary);
+        }
+        
+        .backend-problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .backend-problem-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-text);
+        }
+        
+        .backend-problem-description {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Cómo lo solucionamos */
+        .backend-solutions {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .solutions-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .solutions-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .solution-item {
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-secondary);
+        }
+        
+        .solution-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .solution-item p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Automatización */
+        .backend-automation {
+            padding: var(--space-2xl) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .automation-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .automation-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: var(--color-secondary);
+            font-size: 2rem;
+        }
+        
+        .automation-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .automation-examples {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .automation-examples {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .automation-example {
+            padding: var(--space-lg);
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            text-align: left;
+        }
+        
+        .automation-example h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .automation-example h4 i {
+            color: var(--color-secondary);
+        }
+        
+        .automation-example p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Beneficios reales */
+        .backend-benefits {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .benefits-backend-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        @media (min-width: 768px) {
+            .benefits-backend-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .benefit-backend-item {
+            text-align: center;
+            position: relative;
+            padding: var(--space-xl);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-backend-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-backend-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .benefit-backend-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .benefit-backend-description {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* CTA específico */
+        .backend-cta {
+            padding: var(--space-2xl) 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(124, 58, 237, 0.05));
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .backend-cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .backend-cta-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: var(--space-md);
+        }
+        
+        .backend-cta-description {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.8;
+        }
+        
+        .backend-cta-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .backend-cta-feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--color-text);
+            font-size: 0.95rem;
+        }
+        
+        .backend-cta-feature i {
+            color: var(--color-secondary);
+        }
+        
+        .btn-backend-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-2xl);
+            background: var(--color-secondary);
+            color: white;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn-backend-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Botón volver */
+        .backend-back-to-services {
+            text-align: center;
+            margin-top: var(--space-2xl);
+        }
+        
+        .btn-backend-back {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: transparent;
+            color: var(--color-text);
+            border: 2px solid var(--color-surface-light);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-backend-back:hover {
+            border-color: var(--color-secondary);
+            color: var(--color-secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .backend-section-header,
+        .invisible-content,
+        .what-we-do-content,
+        .backend-problems-grid,
+        .solutions-content,
+        .automation-content,
+        .benefits-backend-grid,
+        .backend-cta-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .backend-section-header.visible,
+        .invisible-content.visible,
+        .what-we-do-content.visible,
+        .backend-problems-grid.visible,
+        .solutions-content.visible,
+        .automation-content.visible,
+        .benefits-backend-grid.visible,
+        .backend-cta-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .what-we-do-item,
+        .backend-problem-card,
+        .solution-item,
+        .benefit-backend-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .what-we-do-item.visible,
+        .backend-problem-card.visible,
+        .solution-item.visible,
+        .benefit-backend-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Elementos de construcción -->
+    <div class="construction-lines" id="construction-lines"></div>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scroll-indicator">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Header Minimalista -->
+    <header class="header" id="header">
+        <div class="container">
+            <!-- Logo limpio -->
+            <a href="../index.html" class="logo">
+                <div class="logo-symbol">
+                    <span class="d">D</span>
+                    <span class="t">T</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">DTech</span>
+                    <span class="logo-accent">Revolution</span>
+                </div>
+            </a>
+            
+            <!-- Navegación Desktop -->
+            <nav class="nav">
+                <ul>
+                    <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="../servicios.html" class="nav-link active">Servicios</a></li>
+                    <li><a href="../proceso.html" class="nav-link">Cómo trabajamos</a></li>
+                    <li><a href="../proyectos.html" class="nav-link">Proyectos</a></li>
+                    <li><a href="../nosotros.html" class="nav-link">Sobre DTech</a></li>
+                    <li><a href="../contacto.html" class="nav-link nav-cta">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Hero específico del servicio -->
+    <section class="backend-hero">
+        <div class="container">
+            <div class="backend-hero-content">
+                <div class="backend-hero-text">
+                    <div class="backend-breadcrumb">
+                        <a href="../servicios.html">Servicios</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Backend & Datos</span>
+                    </div>
+                    
+                    <h1 class="backend-main-title">Backend, <span class="accent">Datos y Automatización</span></h1>
+                    
+                    <p class="backend-subtitle">La parte invisible que hace que todo funcione</p>
+                    
+                    <p class="backend-hero-description">
+                        Mientras tus clientes ven una página web bonita o usan una app sencilla, 
+                        detrás hay un sistema organizando información, haciendo cálculos y 
+                        automatizando procesos. Nosotros construimos esa parte invisible.
+                    </p>
+                    
+                    <a href="#consulta-backend" class="btn btn-primary">
+                        <span class="btn-text">Analizar mis procesos internos</span>
+                        <i class="fas fa-cogs"></i>
+                    </a>
+                </div>
+                
+                <div class="backend-hero-visual">
+                    <div class="backend-hero-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="backend-hero-number">04</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: La parte invisible -->
+    <section class="backend-invisible">
+        <div class="container">
+            <div class="backend-section-header">
+                <h2 class="backend-section-title">La parte <span class="accent">invisible</span></h2>
+                <p class="backend-section-subtitle">Lo que nadie ve, pero de lo que todo depende.</p>
+            </div>
+            
+            <div class="invisible-content">
+                <div class="invisible-text">
+                    <p>
+                        La mayoría de las personas solo ve la interfaz: botones, pantallas y diseño.
+                        Detrás de eso existe una capa invisible que se encarga de procesar datos,
+                        guardar información, conectar sistemas y responder en el momento correcto.
+                    </p>
+                    
+                    <p>
+                        Esa capa es el backend. Ahí vive la lógica del sistema, la seguridad
+                        y el rendimiento. Es lo que permite que una aplicación sea estable,
+                        rápida y confiable incluso cuando crece.
+                    </p>
+                </div>
+                
+                <div class="invisible-highlight">
+                    <p>
+                        "No construimos lo que se ve. Construimos lo que hace que lo visible funcione."
+                    </p>
+                </div>
+                
+                <div class="invisible-text">
+                    <p>
+                        Cuando esta parte está mal hecha, los problemas aparecen: sistemas lentos,
+                        datos que se pierden y procesos que fallan.
+                        Nosotros diseñamos y construimos esta base para que tu producto funcione
+                        hoy y siga funcionando mañana.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: ¿Qué hacemos aquí? -->
+    <section class="backend-what-we-do">
+        <div class="container">
+            <div class="backend-section-header">
+                <h2 class="backend-section-title">¿Qué hacemos <span class="accent">aquí</span>?</h2>
+                <p class="backend-section-subtitle">Tres cosas simples que hacen una gran diferencia.</p>
+            </div>
+            
+            <div class="what-we-do-content">
+                <div class="what-we-do-visual">
+                    <div class="what-we-do-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <p style="color: var(--color-text-secondary); max-width: 300px; margin: 0 auto;">
+                        Organizamos el cerebro digital de tu negocio. Donde otros ven caos, 
+                        nosotros vemos orden posible.
+                    </p>
+                </div>
+                
+                <div class="what-we-do-list">
+                    <div class="what-we-do-item">
+                        <i class="fas fa-boxes"></i>
+                        <div>
+                            <h4>Organizamos tu información</h4>
+                            <p>Tomamos todos tus datos dispersos (clientes, productos, ventas) y los ponemos en un lugar ordenado donde puedas encontrarlos fácilmente.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="what-we-do-item">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <h4>Automatizamos procesos repetitivos</h4>
+                            <p>Identificamos las tareas que haces una y otra vez manualmente, y creamos sistemas que las hagan solas, sin errores.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="what-we-do-item">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <div>
+                            <h4>Conectamos todo</h4>
+                            <p>Hacemos que tus diferentes sistemas hablen entre sí. Tu página web con tu inventario, tu app con tu base de clientes, todo integrado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Problemas que arreglamos -->
+    <section class="backend-problems">
+        <div class="container">
+            <div class="backend-section-header">
+                <h2 class="backend-section-title">¿Qué <span class="accent">arreglamos</span>?</h2>
+                <p class="backend-section-subtitle">Problemas comunes que frenan a muchos negocios.</p>
+            </div>
+            
+            <div class="backend-problems-grid">
+                <div class="backend-problem-card">
+                    <div class="backend-problem-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="backend-problem-title">Información perdida</h3>
+                    <p class="backend-problem-description">"Lo tenía por aquí en algún lado." Gastas más tiempo buscando información que usándola.</p>
+                </div>
+                
+                <div class="backend-problem-card">
+                    <div class="backend-problem-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="backend-problem-title">Errores constantes</h3>
+                    <p class="backend-problem-description">Datos incorrectos, cálculos mal hechos, información que no cuadra. Y siempre hay que revisar.</p>
+                </div>
+                
+                <div class="backend-problem-card">
+                    <div class="backend-problem-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <h3 class="backend-problem-title">Procesos lentos</h3>
+                    <p class="backend-problem-description">Todo tarda más de lo que debería. Un reporte que podría tomar minutos, toma horas.</p>
+                </div>
+                
+                <div class="backend-problem-card">
+                    <div class="backend-problem-icon">
+                        <i class="fas fa-unlink"></i>
+                    </div>
+                    <h3 class="backend-problem-title">Sistemas que no se hablan</h3>
+                    <p class="backend-problem-description">Tu página web tiene una información, tu Excel otra, y nada coincide. Todo duplicado y desactualizado.</p>
+                </div>
+                
+                <div class="backend-problem-card">
+                    <div class="backend-problem-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h3 class="backend-problem-title">No puedes crecer</h3>
+                    <p class="backend-problem-description">Tu sistema actual colapsa cuando tienes más clientes o más productos. No está hecho para crecer contigo.</p>
+                </div>
+                
+                <div class="backend-problem-card">
+                    <div class="backend-problem-icon">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                    <h3 class="backend-problem-title">Dependes de una persona</h3>
+                    <p class="backend-problem-description">Solo una persona en tu equipo sabe cómo funciona todo. Si se va o se enferma, tienes un problema.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Cómo lo solucionamos -->
+    <section class="backend-solutions">
+        <div class="container">
+            <div class="backend-section-header">
+                <h2 class="backend-section-title">Cómo lo <span class="accent">solucionamos</span></h2>
+                <p class="backend-section-subtitle">Enfoque práctico, resultados reales.</p>
+            </div>
+            
+            <div class="solutions-content">
+                <div class="solutions-text">
+                    <p>
+                        No usamos palabras complicadas. Simplemente analizamos cómo trabajas hoy, 
+                        identificamos dónde pierdes tiempo o cometes errores, y creamos soluciones 
+                        simples que realmente funcionen.
+                    </p>
+                </div>
+                
+                <div class="solutions-grid">
+                    <div class="solution-item">
+                        <h4>Primero escuchamos</h4>
+                        <p>Pasamos tiempo con tu equipo entendiendo exactamente cómo trabajan, qué los frustra y qué necesitan para hacer su trabajo mejor.</p>
+                    </div>
+                    
+                    <div class="solution-item">
+                        <h4>Luego organizamos</h4>
+                        <p>Tomamos toda la información dispersa y la ponemos en un sistema ordenado. Todo en su lugar, fácil de encontrar, fácil de actualizar.</p>
+                    </div>
+                    
+                    <div class="solution-item">
+                        <h4>Automatizamos lo repetitivo</h4>
+                        <p>Identificamos las tareas que hacen una y otra vez (enviar emails, generar reportes, actualizar inventarios) y las automatizamos.</p>
+                    </div>
+                    
+                    <div class="solution-item">
+                        <h4>Conectamos todo</h4>
+                        <p>Hacemos que tus diferentes herramientas trabajen juntas. Ya no tendrás que copiar y pegar información de un lado a otro.</p>
+                    </div>
+                </div>
+                
+                <div class="solutions-text">
+                    <p>
+                        <strong>No hacemos sistemas complicados.</strong> Hacemos sistemas simples que resuelvan 
+                        problemas reales. Que tu equipo pueda usar sin necesitar un manual de 100 páginas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Automatización -->
+    <section class="backend-automation">
+        <div class="container">
+            <div class="backend-section-header">
+                <h2 class="backend-section-title">La magia de la <span class="accent">automatización</span></h2>
+                <p class="backend-section-subtitle">Tareas que se hacen solas mientras tú haces cosas importantes.</p>
+            </div>
+            
+            <div class="automation-content">
+                <div class="automation-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                
+                <div class="automation-text">
+                    <p>
+                        La automatización no es tecnología futurista. Es simplemente hacer que las 
+                        computadoras hagan lo que hacen mejor: tareas repetitivas, sin aburrirse, 
+                        sin cometer errores.
+                    </p>
+                    
+                    <p>
+                        Mientras tu equipo se enfoca en lo que realmente importa (atención a clientes, 
+                        estrategia, crecimiento), el sistema trabaja en segundo plano haciendo 
+                        el trabajo pesado.
+                    </p>
+                </div>
+                
+                <div class="automation-examples">
+                    <div class="automation-example">
+                        <h4><i class="fas fa-envelope"></i> Comunicación automática</h4>
+                        <p>Cuando un cliente hace algo importante (compra, se registra, pregunta algo), el sistema le envía un mensaje automáticamente. Sin que nadie tenga que recordar hacerlo.</p>
+                    </div>
+                    
+                    <div class="automation-example">
+                        <h4><i class="fas fa-file-invoice-dollar"></i> Reportes que se generan solos</h4>
+                        <p>Cada lunes por la mañana, tu equipo recibe un email con las ventas de la semana pasada, los clientes nuevos, lo que funciona y lo que no. El sistema lo hizo durante el fin de semana.</p>
+                    </div>
+                    
+                    <div class="automation-example">
+                        <h4><i class="fas fa-sync-alt"></i> Información que se actualiza sola</h4>
+                        <p>Cuando vendes algo en tu tienda online, el inventario se actualiza automáticamente. Cuando contratas un nuevo empleado, se le dan automáticamente los accesos que necesita.</p>
+                    </div>
+                    
+                    <div class="automation-example">
+                        <h4><i class="fas fa-bell"></i> Alertas inteligentes</h4>
+                        <p>El sistema te avisa cuando algo importante pasa: un pedido grande, un cliente insatisfecho, un producto que se está agotando. Para que actúes rápido.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Beneficios reales -->
+    <section class="backend-benefits">
+        <div class="container">
+            <div class="backend-section-header">
+                <h2 class="backend-section-title">Lo que <span class="accent">logras</span></h2>
+                <p class="backend-section-subtitle">Resultados concretos, no promesas vacías.</p>
+            </div>
+            
+            <div class="benefits-backend-grid">
+                <div class="benefit-backend-item">
+                    <div class="benefit-backend-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="benefit-backend-title">Tiempo recuperado</h3>
+                    <p class="benefit-backend-description">Horas que antes gastabas en tareas repetitivas, ahora las usas en lo que realmente importa para tu negocio.</p>
+                </div>
+                
+                <div class="benefit-backend-item">
+                    <div class="benefit-backend-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="benefit-backend-title">Menos errores</h3>
+                    <p class="benefit-backend-description">La información es confiable. Los cálculos son exactos. Ya no pierdes tiempo corrigiendo mistakes.</p>
+                </div>
+                
+                <div class="benefit-backend-item">
+                    <div class="benefit-backend-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="benefit-backend-title">Todo visible</h3>
+                    <p class="benefit-backend-description">Sabes exactamente cómo va tu negocio en tiempo real. No esperas hasta fin de mes para ver los números.</p>
+                </div>
+                
+                <div class="benefit-backend-item">
+                    <div class="benefit-backend-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="benefit-backend-title">Equipo más feliz</h3>
+                    <p class="benefit-backend-description">Tu equipo deja de hacer trabajo tedioso y se enfoca en lo interesante. La rotación baja, la satisfacción sube.</p>
+                </div>
+                
+                <div class="benefit-backend-item">
+                    <div class="benefit-backend-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="benefit-backend-title">Creces sin problemas</h3>
+                    <p class="benefit-backend-description">Tu sistema crece contigo. Doblas clientes, triplicas ventas, y todo sigue funcionando sin colapsar.</p>
+                </div>
+                
+                <div class="benefit-backend-item">
+                    <div class="benefit-backend-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="benefit-backend-title">Menos riesgos</h3>
+                    <p class="benefit-backend-description">La información está segura, respaldada, y no depende de una sola persona. Tu negocio es más resistente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA específico -->
+    <section class="backend-cta" id="consulta-backend">
+        <div class="container">
+            <div class="backend-cta-content">
+                <h2 class="backend-cta-title">¿Tu negocio funciona <span class="accent">tan bien por dentro</span> como por fuera?</h2>
+                
+                <p class="backend-cta-description">
+                    Te ofrecemos un análisis gratuito de tus procesos internos. Identificaremos 
+                    dónde pierdes tiempo, dónde ocurren errores y qué podrías automatizar para 
+                    que tu negocio funcione más suave.
+                </p>
+                
+                <div class="backend-cta-features">
+                    <div class="backend-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Mapeo de procesos actuales</span>
+                    </div>
+                    <div class="backend-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Identificación de cuellos de botella</span>
+                    </div>
+                    <div class="backend-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Propuesta de automatización concreta</span>
+                    </div>
+                    <div class="backend-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sin compromiso de compra</span>
+                    </div>
+                </div>
+                
+                <a href="../contacto.html?service=backend-datos" class="btn-backend-cta">
+                    <span>Quiero mi análisis de procesos gratuito</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="backend-back-to-services">
+                <a href="../servicios.html" class="btn-backend-back">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Ver todos los servicios</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <div class="logo-symbol">
+                            <span class="d">D</span>
+                            <span class="t">T</span>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">DTech</span>
+                            <span class="logo-accent">Revolution</span>
+                        </div>
+                    </a>
+                    
+                    <p class="footer-tagline">
+                        Pensamos. Luego construimos.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul>
+                        <li><a href="../index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="../servicios.html" class="footer-link">Servicios</a></li>
+                        <li><a href="../proceso.html" class="footer-link">Cómo trabajamos</a></li>
+                        <li><a href="../proyectos.html" class="footer-link">Proyectos</a></li>
+                        <li><a href="../nosotros.html" class="footer-link">Sobre DTech</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul>
+                        <li><a href="software-medida.html" class="footer-link">Software a Medida</a></li>
+                        <li><a href="desarrollo-web.html" class="footer-link">Desarrollo Web</a></li>
+                        <li><a href="apps-moviles.html" class="footer-link">Apps Móviles</a></li>
+                        <li><a href="backend-datos.html" class="footer-link active">Backend & Datos</a></li>
+                        <li><a href="estrategia-visual.html" class="footer-link">Estrategia Visual</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contacto</h4>
+                    <a href="mailto:hola@dtechrevolution.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        hola@dtechrevolution.com
+                    </a>
+                    <a href="https://wa.me/5215512345678" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="tel:+525512345678" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        +52 55 1234 5678
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 DTechRevolution. Todos los derechos reservados.</p>
+                <p class="motto">Tecnología con propósito.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+                <a href="../index.html" class="logo">
+                    <div class="logo-symbol">
+                        <span class="d">D</span>
+                        <span class="t">T</span>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">DTech</span>
+                        <span class="logo-accent">Revolution</span>
+                    </div>
+                </a>
+                
+                <button class="menu-close" aria-label="Cerrar menú" id="menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="../index.html" class="mobile-link">Inicio</a></li>
+                    <li><a href="../servicios.html" class="mobile-link active">Servicios</a></li>
+                    <li><a href="../proceso.html" class="mobile-link">Cómo trabajamos</a></li>
+                    <li><a href="../proyectos.html" class="mobile-link">Proyectos</a></li>
+                    <li><a href="../nosotros.html" class="mobile-link">Sobre DTech</a></li>
+                    <li><a href="../contacto.html" class="mobile-link mobile-cta">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    
+    <!-- Script para animaciones específicas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animaciones para la página de backend
+            function animateBackendPage() {
+                const sections = document.querySelectorAll('.backend-section-header, .invisible-content, .what-we-do-content, .backend-problems-grid, .solutions-content, .automation-content, .benefits-backend-grid, .backend-cta-content');
+                const items = document.querySelectorAll('.what-we-do-item, .backend-problem-card, .solution-item, .benefit-backend-item');
+                
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    
+                    if (rect.top <= windowHeight * 0.85) {
+                        section.classList.add('visible');
+                    }
+                });
+                
+                items.forEach((item, index) => {
+                    const rect = item.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    
+                    if (rect.top <= windowHeight * 0.85) {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 100); // Delay escalonado
+                    }
+                });
+            }
+            
+            // Animar hero inmediatamente
+            setTimeout(() => {
+                const heroText = document.querySelector('.backend-hero-text');
+                const heroVisual = document.querySelector('.backend-hero-visual');
+                if (heroText) heroText.style.opacity = '1';
+                if (heroVisual) heroVisual.style.opacity = '1';
+            }, 300);
+            
+            window.addEventListener('scroll', animateBackendPage);
+            animateBackendPage(); // Ejecutar una vez al cargar
+            
+            // Actualizar breadcrumb activo
+            const currentPageLink = document.querySelector('.footer-links .footer-link.active');
+            if (currentPageLink) {
+                currentPageLink.style.color = 'var(--color-primary)';
+                currentPageLink.style.fontWeight = '600';
+            }
+        });
+    </script>
+</body>
+</html>

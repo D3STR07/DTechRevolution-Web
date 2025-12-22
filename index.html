@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTechRevolution | Pensamos. Luego construimos.</title>
+    <meta name="description" content="Desarrollo tecnológico con estrategia. Transformamos desafíos complejos en sistemas elegantes.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://api.dicebear.com/7.x/shapes/svg?seed=DTech">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <!-- Elementos de construcción -->
+    <div class="construction-lines" id="construction-lines"></div>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scroll-indicator">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Header Minimalista -->
+    <header class="header" id="header">
+        <div class="container">
+            <!-- Logo limpio -->
+            <a href="index.html" class="logo">
+                <div class="logo-symbol">
+                    <span class="d">D</span>
+                    <span class="t">T</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">DTech</span>
+                    <span class="logo-accent">Revolution</span>
+                </div>
+            </a>
+            
+            <!-- Navegación Desktop -->
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                    <li><a href="proceso.html" class="nav-link">Cómo trabajamos</a></li>
+                    <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Sobre DTech</a></li>
+                    <li><a href="contacto.html" class="nav-link nav-cta">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line line-1">Tú lo imaginas.</span>
+                    <span class="title-line line-2">Nosotros lo <span class="highlight">Hacemos Realidad</span>.</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Diseñamos y desarrollamos tecnología a medida para convertir ideas ambiciosas en soluciones reales.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="contacto.html" class="btn btn-primary">
+                        <span class="btn-text">Hablemos de tu proyecto</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <a href="servicios.html" class="btn btn-secondary">
+                        <span class="btn-text">Ver nuestros servicios</span>
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Enfoque estratégico</span>
+                    </div>
+                    
+                    <div class="stat">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Soluciones temporales</span>
+                    </div>
+                    
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Escalabilidad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: ¿Qué Resolvemos? -->
+    <section class="problems-section" id="problemas">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Qué <span class="accent">resolvemos</span>?</h2>
+                <p class="section-subtitle">No vendemos software. Resolvemos problemas reales de tu negocio con tecnología.</p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    
+                    <h3 class="problem-title">Procesos ineficientes</h3>
+                    
+                    <p class="problem-description">
+                        Tareas manuales que pierden tiempo, dinero y generan errores innecesarios.
+                    </p>
+                    
+                    <div class="problem-solution">
+                        <strong>Automatización inteligente</strong>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    
+                    <h3 class="problem-title">Sistemas desconectados</h3>
+                    
+                    <p class="problem-description">
+                        Datos separados que te impiden tener control y tomar buenas decisiones.
+                    </p>
+                    
+                    <div class="problem-solution">
+                        <strong>Integración estratégica</strong>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    
+                    <h3 class="problem-title">Crecimiento estancado</h3>
+                    
+                    <p class="problem-description">
+                        Sistemas que no están preparados para crecer al ritmo de tu negocio.
+                    </p>
+                    
+                    <div class="problem-solution">
+                        <strong>Arquitectura escalable</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Servicios -->
+    <section class="services-section" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros <span class="accent">servicios</span></h2>
+                <p class="section-subtitle">Servicios tecnológicos diseñados para resolver problemas reales de negocio.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    
+                    <h3 class="service-title">Desarrollo Web</h3>
+                    
+                    <p class="service-description">
+                        Plataformas web rápidas, seguras y pensadas para generar resultados.
+                    </p>
+                    
+                    <div class="service-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Next.js</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    
+                    <h3 class="service-title">Software a Medida</h3>
+                    
+                    <p class="service-description">
+                        Software diseñado específicamente para la forma en que opera tu negocio.
+                    </p>
+                    
+                    <div class="service-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">.NET</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    
+                    <h3 class="service-title">Apps Móviles</h3>
+                    
+                    <p class="service-description">
+                        Aplicaciones móviles enfocadas en usabilidad, rendimiento y crecimiento.
+                    </p>
+                    
+                    <div class="service-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Flutter</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    
+                    <h3 class="service-title">Backend & Datos</h3>
+                    
+                    <p class="service-description">
+                        Sistemas backend sólidos y seguros preparados para escalar sin límites.
+                    </p>
+                    
+                    <div class="service-tech">
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-cta">
+                <a href="servicios.html" class="btn btn-secondary">
+                    <span class="btn-text">Ver todos los servicios</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Prueba de seriedad -->
+    <section class="seriousness-section" id="seriedad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="seriousness-title">Disciplina, no improvisación</h2>
+                <p class="section-subtitle">Nuestro proceso técnico reduce riesgos y garantiza resultados confiables.</p>
+            </div>
+            
+            <div class="seriousness-content">
+                <div class="seriousness-item">
+                    <div class="seriousness-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="seriousness-text">
+                        <h3>Pensamos antes de construir</h3>
+                        <p>Analizamos el negocio y la parte técnica antes de empezar a construir.</p>
+                    </div>
+                </div>
+                
+                <div class="seriousness-item">
+                    <div class="seriousness-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="seriousness-text">
+                        <h3>Arquitectura escalable</h3>
+                        <p>Diseñamos sistemas preparados para crecer contigo, sin rehacer todo más adelante.</p>
+                    </div>
+                </div>
+                
+                <div class="seriousness-item">
+                    <div class="seriousness-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="seriousness-text">
+                        <h3>Seguridad integrada</h3>
+                        <p>La seguridad se integra desde el inicio, no se añade cuando el problema ya existe.</p>
+                    </div>
+                </div>
+                
+                <div class="seriousness-item">
+                    <div class="seriousness-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="seriousness-text">
+                        <h3>Rendimiento óptimo</h3>
+                        <p>Optimizamos cada detalle para lograr velocidad, estabilidad y una mejor experiencia de usuario.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Proceso -->
+    <section class="process-section" id="proceso">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cómo <span class="accent">trabajamos</span></h2>
+                <p class="section-subtitle">Un proceso claro para obtener resultados confiables.</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Análisis</h3>
+                    <p class="step-description">
+                        Entendemos tus objetivos y procesos antes de escribir una sola línea de código.
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Diseño</h3>
+                    <p class="step-description">
+                        Diseñamos la arquitectura y la experiencia pensando en el crecimiento.
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Desarrollo</h3>
+                    <p class="step-description">
+                        Desarrollamos con estándares altos, calidad y comunicación constante.
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3 class="step-title">Entrega</h3>
+                    <p class="step-description">
+                        Implementamos, acompañamos y damos soporte después del lanzamiento.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="section-cta">
+                <a href="proceso.html" class="btn btn-secondary">
+                    <span class="btn-text">Ver proceso completo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Proyectos Destacados -->
+    <section class="projects-preview" id="proyectos">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proyectos <span class="accent">destacados</span></h2>
+                <p class="section-subtitle">Soluciones reales para problemas reales.</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-badge">Fintech</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Plataforma de Inversiones</h3>
+                        <p class="project-description">Sistema de trading automatizado con análisis en tiempo real.</p>
+                        <a href="proyectos.html#fintech" class="project-link">Ver caso de estudio <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-badge">Logística</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Gestión de Cadena de Suministro</h3>
+                        <p class="project-description">Optimización de rutas y inventario en tiempo real.</p>
+                        <a href="proyectos.html#logistica" class="project-link">Ver caso de estudio <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-cta">
+                <a href="proyectos.html" class="btn btn-primary">
+                    <span class="btn-text">Ver todos los proyectos</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!--Sección: Contacto Mejorada
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="contact-title">Transformemos tus ideas en <span class="accent">realidad</span></h2>
+                    
+                    <p class="contact-description">
+                        ¿Listo para dar el siguiente paso? Cuéntanos sobre tu proyecto y te mostraremos 
+                        cómo podemos ayudarte a alcanzar tus objetivos tecnológicos.
+                    </p>
+                    
+                    <div class="contact-advantages">
+                        <div class="advantage">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Análisis inicial sin costo</span>
+                        </div>
+                        <div class="advantage">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Propuesta detallada en 48h</span>
+                        </div>
+                        <div class="advantage">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Equipo especializado asignado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:hola@dtechrevolution.com">hola@dtechrevolution.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/5215512345678" target="_blank">+52 55 1234 5678</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <a href="tel:+525512345678">+52 55 1234 5678</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-cta">
+                    <div class="cta-card">
+                        <h3 class="cta-title">¿Por dónde empezamos?</h3>
+                        <p class="cta-description">
+                            Agenda una consulta estratégica gratuita de 30 minutos con nuestro equipo técnico.
+                        </p>
+                        
+                        <div class="cta-options">
+                            <a href="https://wa.me/5215512345678" target="_blank" class="btn btn-primary btn-block">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>Chat en WhatsApp</span>
+                            </a>
+                            
+                            <a href="mailto:hola@dtechrevolution.com?subject=Consulta%20de%20proyecto" class="btn btn-secondary btn-block">
+                                <i class="fas fa-envelope"></i>
+                                <span>Enviar email</span>
+                            </a>
+                            
+                            <a href="contacto.html" class="btn btn-outline btn-block">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Agendar llamada</span>
+                            </a>
+                        </div>
+                        
+                        <div class="cta-note">
+                            <i class="fas fa-clock"></i>
+                            <span>Te responderemos en menos de 24 horas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-symbol">
+                            <span class="d">D</span>
+                            <span class="t">T</span>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">DTech</span>
+                            <span class="logo-accent">Revolution</span>
+                        </div>
+                    </a>
+                    
+                    <p class="footer-tagline">
+                        Pensamos. Luego construimos.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul>
+                        <li><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="servicios.html" class="footer-link">Servicios</a></li>
+                        <li><a href="proceso.html" class="footer-link">Cómo trabajamos</a></li>
+                        <li><a href="proyectos.html" class="footer-link">Proyectos</a></li>
+                        <li><a href="nosotros.html" class="footer-link">Sobre DTech</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul>
+                        <li><a href="servicios.html#web" class="footer-link">Desarrollo Web</a></li>
+                        <li><a href="servicios.html#software" class="footer-link">Software a Medida</a></li>
+                        <li><a href="servicios.html#apps" class="footer-link">Apps Móviles</a></li>
+                        <li><a href="servicios.html#backend" class="footer-link">Backend & Datos</a></li>
+                        <li><a href="servicios.html#soporte" class="footer-link">Soporte</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contacto</h4>
+                    <a href="mailto:hola@dtechrevolution.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        hola@dtechrevolution.com
+                    </a>
+                    <a href="https://wa.me/7713397406" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="tel:+525512345678" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        +52 55 1234 5678
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 DTechRevolution. Todos los derechos reservados.</p>
+                <p class="motto">Tecnología con propósito.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+                <a href="index.html" class="logo">
+                    <div class="logo-symbol">
+                        <span class="d">D</span>
+                        <span class="t">T</span>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">DTech</span>
+                        <span class="logo-accent">Revolution</span>
+                    </div>
+                </a>
+                
+                <button class="menu-close" aria-label="Cerrar menú" id="menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html" class="mobile-link">Inicio</a></li>
+                    <li><a href="servicios.html" class="mobile-link">Servicios</a></li>
+                    <li><a href="proceso.html" class="mobile-link">Cómo trabajamos</a></li>
+                    <li><a href="proyectos.html" class="mobile-link">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="mobile-link">Sobre DTech</a></li>
+                    <li><a href="contacto.html" class="mobile-link mobile-cta">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

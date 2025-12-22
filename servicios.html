@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | DTechRevolution | Soluciones tecnológicas específicas</title>
+    <meta name="description" content="Seis servicios integrados, una estrategia unificada. Desde software a medida hasta estrategia visual, todo conectado.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://api.dicebear.com/7.x/shapes/svg?seed=DTech">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* VARIABLES DE COLOR - ROJO Y AZUL */
+        :root {
+            /* Paleta principal rojo-azul */
+            --color-bg: #0A0E1A;           /* Negro azulado muy oscuro */
+            --color-surface: #141A2A;      /* Superficie oscura azulada */
+            --color-surface-light: #1E2536; /* Superficie clara */
+            --color-text: #F0F4FF;         /* Texto blanco azulado */
+            --color-text-secondary: #8A9BBF; /* Texto secundario azulado */
+            --color-primary: #DC2626;      /* Rojo vibrante (#DC2626) */
+            --color-primary-dark: #B91C1C; /* Rojo más oscuro (#B91C1C) */
+            --color-secondary: #3B82F6;    /* Azul brillante (#3B82F6) */
+            --color-secondary-dark: #2563EB; /* Azul más oscuro (#2563EB) */
+            --color-accent: #EF4444;       /* Rojo acento (#EF4444) */
+            --color-accent-alt: #60A5FA;   /* Azul acento alternativo */
+            
+            /* Variables de diseño */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-full: 9999px;
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* Estilos específicos para servicios.html */
+        .services-master-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            text-align: center;
+            background: linear-gradient(135deg, 
+                rgba(10, 14, 26, 0.95) 0%, 
+                rgba(28, 37, 65, 0.95) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-master-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .master-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-2xl) 0;
+        }
+        
+        .master-hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .master-hero-title .accent {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .master-hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-2xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-master-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            margin-top: var(--space-2xl);
+        }
+        
+        .master-stat {
+            text-align: center;
+        }
+        
+        .master-stat-number {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .master-stat-label {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Introducción */
+        .services-master-intro {
+            padding: var(--space-2xl) 0;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .master-intro-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .master-intro-title .accent {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .master-intro-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .master-intro-text strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+        
+        /* Grid de tarjetas */
+        .services-master-grid {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        @media (min-width: 768px) {
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .services-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Tarjetas de servicio */
+        .service-card-master {
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            text-decoration: none;
+            color: var(--color-text);
+            display: block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(220, 38, 38, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card-master:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--color-primary);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2),
+                        0 0 0 1px rgba(59, 130, 246, 0.1);
+        }
+        
+        .service-card-master::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card-master:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card-master::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(220, 38, 38, 0.03) 0%, 
+                rgba(59, 130, 246, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card-master:hover::after {
+            opacity: 1;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: var(--space-lg);
+            position: relative;
+            min-height: 80px;
+        }
+        
+        .service-icon-master {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, 
+                rgba(220, 38, 38, 0.1), 
+                rgba(59, 130, 246, 0.1));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card-master:hover .service-icon-master {
+            background: linear-gradient(135deg, 
+                rgba(220, 38, 38, 0.2), 
+                rgba(59, 130, 246, 0.2));
+            transform: rotate(5deg) scale(1.1);
+            color: var(--color-secondary);
+        }
+        
+        .service-number-master {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, 
+                rgba(220, 38, 38, 0.1), 
+                rgba(59, 130, 246, 0.1));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            line-height: 1;
+            z-index: 1;
+        }
+        
+        .service-title-master {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .service-tagline-master {
+            font-size: 0.9rem;
+            color: var(--color-secondary);
+            font-style: italic;
+            margin-bottom: var(--space-md);
+            font-weight: 500;
+        }
+        
+        .service-description-master {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .service-features {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xs);
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card-master:hover .feature {
+            color: var(--color-text);
+        }
+        
+        .feature i {
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card-master:hover .feature i {
+            color: var(--color-secondary);
+            transform: scale(1.2);
+        }
+        
+        .service-cta-master {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(220, 38, 38, 0.1);
+        }
+        
+        .cta-text {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card-master:hover .cta-text {
+            color: var(--color-secondary);
+        }
+        
+        .cta-arrow {
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .service-card-master:hover .cta-arrow {
+            transform: translateX(5px) scale(1.2);
+            color: var(--color-secondary);
+        }
+        
+        /* Sección unificadora */
+        .services-unified-master {
+            padding: var(--space-2xl) 0;
+            background: linear-gradient(135deg, 
+                rgba(28, 37, 65, 0.8), 
+                rgba(10, 14, 26, 0.9));
+            border-radius: var(--radius-xl);
+            margin-top: var(--space-2xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(220, 38, 38, 0.1);
+        }
+        
+        .services-unified-master::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, 
+                rgba(59, 130, 246, 0.1) 0%, 
+                transparent 70%);
+            z-index: -1;
+        }
+        
+        .unified-master-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .unified-master-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .unified-master-title .accent {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .unified-master-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .unified-master-text strong {
+            color: var(--color-text);
+        }
+        
+        /* Botón especial */
+        .btn-master {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-master::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-master:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+        }
+        
+        .btn-master:hover::before {
+            left: 100%;
+        }
+        
+        /* Animaciones */
+        .service-card-master {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card-master.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .services-master-hero,
+        .services-master-intro,
+        .services-unified-master {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .services-master-hero.visible,
+        .services-master-intro.visible,
+        .services-unified-master.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Colores para cada tarjeta específica */
+        .service-card-master:nth-child(1) .service-icon-master {
+            color: var(--color-primary);
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(59, 130, 246, 0.1));
+        }
+        
+        .service-card-master:nth-child(2) .service-icon-master {
+            color: var(--color-secondary);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(220, 38, 38, 0.1));
+        }
+        
+        .service-card-master:nth-child(3) .service-icon-master {
+            color: var(--color-primary);
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(59, 130, 246, 0.1));
+        }
+        
+        .service-card-master:nth-child(4) .service-icon-master {
+            color: var(--color-secondary);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(220, 38, 38, 0.1));
+        }
+        
+        .service-card-master:nth-child(5) .service-icon-master {
+            color: var(--color-primary);
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(59, 130, 246, 0.1));
+        }
+        
+        .service-card-master:nth-child(6) .service-icon-master {
+            color: var(--color-secondary);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(220, 38, 38, 0.1));
+        }
+
+        /* Efecto de brillo en hover para cada tarjeta */
+        .service-card-master:nth-child(odd):hover .service-icon-master {
+            box-shadow: 0 0 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        .service-card-master:nth-child(even):hover .service-icon-master {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Elementos de construcción -->
+    <div class="construction-lines" id="construction-lines"></div>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scroll-indicator">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Header Minimalista -->
+    <header class="header" id="header">
+        <div class="container">
+            <!-- Logo limpio -->
+            <a href="index.html" class="logo">
+                <div class="logo-symbol">
+                    <span class="d">D</span>
+                    <span class="t">T</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">DTech</span>
+                    <span class="logo-accent">Revolution</span>
+                </div>
+            </a>
+            
+            <!-- Navegación Desktop -->
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link active">Servicios</a></li>
+                    <li><a href="proceso.html" class="nav-link">Cómo trabajamos</a></li>
+                    <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Sobre DTech</a></li>
+                    <li><a href="contacto.html" class="nav-link nav-cta">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Hero Principal -->
+    <section class="services-master-hero" id="inicio">
+        <div class="container">
+            <div class="master-hero-content">
+                <h1 class="master-hero-title">
+                    <span class="hero-line">Servicios que</span>
+                    <span class="hero-line"><span class="accent">piensan</span> antes de construir</span>
+                </h1>
+                
+                <p class="master-hero-subtitle">
+                    Seis soluciones integradas bajo una sola estrategia.
+                    Todo conectado para que tu negocio funcione mejor.
+                </p>
+                
+                <div class="services-master-stats">
+                    <div class="master-stat">
+                        <span class="master-stat-number">6</span>
+                        <span class="master-stat-label">Servicios</span>
+                    </div>
+                    
+                    <div class="master-stat">
+                        <span class="master-stat-number">1</span>
+                        <span class="master-stat-label">Estrategia</span>
+                    </div>
+                    
+                    <div class="master-stat">
+                        <span class="master-stat-number">∞</span>
+                        <span class="master-stat-label">Posibilidades</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Introducción -->
+    <section class="services-master-intro">
+        <div class="container">
+            <div class="master-intro-content">
+                <h2 class="master-intro-title">No vendemos código. Vendemos <span class="accent">soluciones</span>.</h2>
+                
+                <div class="master-intro-text">
+                    <p>
+                        Cada servicio está pensado para resolver un problema real,
+                        no para vender tecnología por vender. <strong>Nos adaptamos a tu realidad, 
+                        no al revés.</strong>
+                    </p>
+                    
+                    <p>
+                        Elige el servicio que mejor se adapte a tu necesidad.
+                        En cada página encontrarás información clara
+                        y una forma directa de comenzar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Grid de Tarjetas -->
+    <section class="services-master-grid">
+        <div class="container">
+            <div class="services-container">
+                <!-- Tarjeta 1: Software a Medida -->
+                <a href="servicios/software-medida.html" class="service-card-master">
+                    <div class="card-header">
+                        <div class="service-icon-master">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="service-number-master">01</div>
+                    </div>
+                    
+                    <h3 class="service-title-master">Software a Medida</h3>
+                    <p class="service-tagline-master">La solución exacta para procesos únicos</p>
+                    
+                    <p class="service-description-master">
+                        Sistemas personalizados que se adaptan perfectamente a tus flujos de trabajo. 
+                        No modificamos plantillas; construimos desde cero pensando en tu eficiencia.
+                    </p>
+                    
+                    <div class="service-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Análisis profundo de procesos</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Desarrollo desde cero</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Escalabilidad garantizada</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta-master">
+                        <span class="cta-text">Ver detalles completos</span>
+                        <span class="cta-arrow">→</span>
+                    </div>
+                </a>
+                
+                <!-- Tarjeta 2: Desarrollo Web -->
+                <a href="servicios/desarrollo-web.html" class="service-card-master">
+                    <div class="card-header">
+                        <div class="service-icon-master">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="service-number-master">02</div>
+                    </div>
+                    
+                    <h3 class="service-title-master">Desarrollo Web</h3>
+                    <p class="service-tagline-master">Tu negocio, presentado con claridad</p>
+                    
+                    <p class="service-description-master">
+                        Plataformas web que representan tu negocio de forma profesional y funcional. 
+                        No son solo páginas bonitas; son herramientas de trabajo que generan confianza.
+                    </p>
+                    
+                    <div class="service-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Diseño estratégico</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Optimización técnica</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Enfoque conversión</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta-master">
+                        <span class="cta-text">Ver detalles completos</span>
+                        <span class="cta-arrow">→</span>
+                    </div>
+                </a>
+                
+                <!-- Tarjeta 3: Apps Móviles -->
+                <a href="servicios/apps-moviles.html" class="service-card-master">
+                    <div class="card-header">
+                        <div class="service-icon-master">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="service-number-master">03</div>
+                    </div>
+                    
+                    <h3 class="service-title-master">Apps Móviles</h3>
+                    <p class="service-tagline-master">Experiencias nativas en el bolsillo</p>
+                    
+                    <p class="service-description-master">
+                        Aplicaciones nativas para iOS y Android que ofrecen experiencias fluidas. 
+                        Apps que se sienten naturales en cada dispositivo y resuelven necesidades reales.
+                    </p>
+                    
+                    <div class="service-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Desarrollo nativo</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>UX optimizada</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Pruebas en dispositivos reales</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta-master">
+                        <span class="cta-text">Ver detalles completos</span>
+                        <span class="cta-arrow">→</span>
+                    </div>
+                </a>
+                
+                <!-- Tarjeta 4: Backend & Datos -->
+                <a href="servicios/backend-datos.html" class="service-card-master">
+                    <div class="card-header">
+                        <div class="service-icon-master">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="service-number-master">04</div>
+                    </div>
+                    
+                    <h3 class="service-title-master">Backend & Datos</h3>
+                    <p class="service-tagline-master">Infraestructura que escala contigo</p>
+                    
+                    <p class="service-description-master">
+                        La infraestructura técnica invisible pero esencial que hace funcionar todo. 
+                        Bases de datos optimizadas, APIs robustas y sistemas de automatización inteligente.
+                    </p>
+                    
+                    <div class="service-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Arquitecturas escalables</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Seguridad desde el inicio</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Automatización inteligente</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta-master">
+                        <span class="cta-text">Ver detalles completos</span>
+                        <span class="cta-arrow">→</span>
+                    </div>
+                </a>
+                
+                <!-- Tarjeta 5: Estrategia Visual -->
+                <a href="servicios/estrategia-visual.html" class="service-card-master">
+                    <div class="card-header">
+                        <div class="service-icon-master">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="service-number-master">05</div>
+                    </div>
+                    
+                    <h3 class="service-title-master">Estrategia Visual</h3>
+                    <p class="service-tagline-master">No solo construimos, ayudamos a mostrar</p>
+                    
+                    <p class="service-description-master">
+                        Identidad visual coherente para redes y plataformas digitales. 
+                        Comunicación profesional que refleja la calidad de lo que ofreces.
+                    </p>
+                    
+                    <div class="service-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Identidad visual coherente</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Contenido alineado a objetivos</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Integración con tus sistemas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta-master">
+                        <span class="cta-text">Ver detalles completos</span>
+                        <span class="cta-arrow">→</span>
+                    </div>
+                </a>
+                
+                <!-- Tarjeta 6: Soporte -->
+                <a href="servicios/soporte.html" class="service-card-master">
+                    <div class="card-header">
+                        <div class="service-icon-master">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="service-number-master">06</div>
+                    </div>
+                    
+                    <h3 class="service-title-master">Soporte & Evolución</h3>
+                    <p class="service-tagline-master">No te dejamos solo después de entregar</p>
+                    
+                    <p class="service-description-master">
+                        Mantenimiento continuo, actualizaciones y soporte técnico profesional. 
+                        Evolucionamos contigo, adaptando la tecnología a tus nuevos retos.
+                    </p>
+                    
+                    <div class="service-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Soporte técnico 24/7</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Actualizaciones constantes</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Evolución con tu negocio</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta-master">
+                        <span class="cta-text">Ver detalles completos</span>
+                        <span class="cta-arrow">→</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección Unificadora -->
+    <section class="services-unified-master">
+        <div class="container">
+            <div class="unified-master-content">
+                <h2 class="unified-master-title">¿No estás seguro por dónde <span class="accent">empezar</span>?</h2>
+                
+                <div class="unified-master-text">
+                    <p>
+                        Estos seis servicios <strong>trabajan mejor juntos</strong>. 
+                        Un proyecto puede empezar con desarrollo web, crecer con software a medida, 
+                        expandirse con una app móvil, y comunicarse mejor con estrategia visual.
+                    </p>
+                    
+                    <p>
+                        <strong>No necesitas coordinar múltiples proveedores.</strong> 
+                        En DTechRevolution, pensamos el panorama completo y te acompañamos 
+                        en cada paso del camino.
+                    </p>
+                </div>
+                
+                <a href="contacto.html" class="btn-master">
+                    <span>Hablemos de tu proyecto completo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                
+                <p style="margin-top: var(--space-lg); color: var(--color-text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Agenda una consulta estratégica gratuita de 30 minutos</span>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-symbol">
+                            <span class="d">D</span>
+                            <span class="t">T</span>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">DTech</span>
+                            <span class="logo-accent">Revolution</span>
+                        </div>
+                    </a>
+                    
+                    <p class="footer-tagline">
+                        Pensamos. Luego construimos.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul>
+                        <li><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="servicios.html" class="footer-link">Servicios</a></li>
+                        <li><a href="proceso.html" class="footer-link">Cómo trabajamos</a></li>
+                        <li><a href="proyectos.html" class="footer-link">Proyectos</a></li>
+                        <li><a href="nosotros.html" class="footer-link">Sobre DTech</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul>
+                        <li><a href="servicios/software-medida.html" class="footer-link">Software a Medida</a></li>
+                        <li><a href="servicios/desarrollo-web.html" class="footer-link">Desarrollo Web</a></li>
+                        <li><a href="servicios/apps-moviles.html" class="footer-link">Apps Móviles</a></li>
+                        <li><a href="servicios/backend-datos.html" class="footer-link">Backend & Datos</a></li>
+                        <li><a href="servicios/estrategia-visual.html" class="footer-link">Estrategia Visual</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contacto</h4>
+                    <a href="mailto:hola@dtechrevolution.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        hola@dtechrevolution.com
+                    </a>
+                    <a href="https://wa.me/5215512345678" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="tel:+525512345678" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        +52 55 1234 5678
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 DTechRevolution. Todos los derechos reservados.</p>
+                <p class="motto">Tecnología con propósito.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+                <a href="index.html" class="logo">
+                    <div class="logo-symbol">
+                        <span class="d">D</span>
+                        <span class="t">T</span>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">DTech</span>
+                        <span class="logo-accent">Revolution</span>
+                    </div>
+                </a>
+                
+                <button class="menu-close" aria-label="Cerrar menú" id="menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html" class="mobile-link">Inicio</a></li>
+                    <li><a href="servicios.html" class="mobile-link active">Servicios</a></li>
+                    <li><a href="proceso.html" class="mobile-link">Cómo trabajamos</a></li>
+                    <li><a href="proyectos.html" class="mobile-link">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="mobile-link">Sobre DTech</a></li>
+                    <li><a href="contacto.html" class="mobile-link mobile-cta">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Script para animaciones específicas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animaciones para servicios.html
+            function animateServicesPage() {
+                const elements = document.querySelectorAll('.service-card-master, .services-master-hero, .services-master-intro, .services-unified-master');
+                
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    
+                    if (rect.top <= windowHeight * 0.85) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Animar hero inmediatamente
+            setTimeout(() => {
+                const hero = document.querySelector('.services-master-hero');
+                if (hero) hero.classList.add('visible');
+            }, 300);
+            
+            window.addEventListener('scroll', animateServicesPage);
+            animateServicesPage(); // Ejecutar una vez al cargar
+            
+            // Crear estructura de carpetas si no existe
+            
+        });
+    </script>
+</body>
+</html>

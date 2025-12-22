@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | DTechRevolution</title>
+    <meta name="description" content="Tu idea. Nuestra ejecución. Contáctanos como prefieras.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://api.dicebear.com/7.x/shapes/svg?seed=DTech">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* RESET RÁPIDO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body.dark-mode {
+            background: #0F172A;
+            color: #F8FAFC;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+        }
+        
+        /* HEADER FIXED - MODIFICADO */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #334155;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #F8FAFC;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #8B5CF6, #EF4444);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+        
+        /* NAVEGACIÓN RESTAURADA */
+        .header-nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            color: #F8FAFC;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: #8B5CF6;
+        }
+        
+        .nav-link.active {
+            color: #8B5CF6;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(135deg, #8B5CF6, #EF4444);
+            border-radius: 2px;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+            padding: 8px 20px !important;
+            border-radius: 8px;
+            margin-left: 10px;
+        }
+        
+        .nav-cta:hover {
+            background: linear-gradient(135deg, #7C3AED, #6D28D9);
+            color: white !important;
+        }
+        
+        /* Botón menú móvil */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #F8FAFC;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        /* MAIN CONTAINER */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HERO COMPACTO */
+        .compact-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        
+        .hero-main {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #8B5CF6, #EF4444);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-sub {
+            color: #94A3B8;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* LAYOUT DE DOS COLUMNAS - MODIFICADO */
+        .dual-contact {
+            padding: 40px 0 80px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+        
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        /* COLUMNA IZQUIERDA - PARA GENTE DECIDIDA - MODIFICADA CON BOTONES GRANDES */
+        .direct-contact {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .direct-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #F8FAFC;
+        }
+        
+        .direct-subtitle {
+            color: #94A3B8;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .direct-subtitle strong {
+            color: #8B5CF6;
+            font-weight: 600;
+        }
+        
+        /* CONTACTO DIRECTO - BOTONES GIGANTES QUE OCUPAN TODO */
+        .direct-contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-method-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+        
+        .contact-method-btn:hover {
+            border-color: #8B5CF6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
+            background: rgba(30, 41, 59, 0.9);
+        }
+        
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .whatsapp-btn {
+            border-color: rgba(37, 211, 102, 0.3);
+            background: rgba(37, 211, 102, 0.05);
+        }
+        
+        .whatsapp-btn:hover {
+            border-color: #25D366;
+            background: rgba(37, 211, 102, 0.1);
+        }
+        
+        .whatsapp-icon {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .phone-btn {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.05);
+        }
+        
+        .phone-btn:hover {
+            border-color: #3B82F6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .phone-icon {
+            background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+            color: white;
+        }
+        
+        .email-btn {
+            border-color: rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.05);
+        }
+        
+        .email-btn:hover {
+            border-color: #EF4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+        
+        .email-icon {
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+            color: white;
+        }
+        
+        .method-content {
+            flex: 1;
+        }
+        
+        .method-title {
+            font-weight: 600;
+            color: #F8FAFC;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .method-detail {
+            color: #94A3B8;
+            font-size: 0.95rem;
+        }
+        
+        .method-arrow {
+            color: #8B5CF6;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-method-btn:hover .method-arrow {
+            opacity: 1;
+        }
+        
+        .method-note {
+            font-size: 0.85rem;
+            color: #64748B;
+            margin-top: 3px;
+        }
+        
+        /* INFO EXTRA PARA LOS DIRECTOS */
+        .contact-info {
+            margin-top: auto;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .info-item i {
+            color: #8B5CF6;
+            font-size: 1rem;
+        }
+        
+        .info-item span {
+            color: #F8FAFC;
+            font-size: 0.95rem;
+        }
+        
+        /* COLUMNA DERECHA - PARA GENTE MÁS REFLEXIVA */
+        .reflective-contact {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid #334155;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .reflective-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #8B5CF6, #EF4444);
+        }
+        
+        .reflective-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #F8FAFC;
+        }
+        
+        .reflective-subtitle {
+            color: #94A3B8;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        
+        /* FORMULARIO MEJORADO */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .input-label {
+            color: #94A3B8;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            width: 100%;
+            transition: border-color 0.2s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #8B5CF6;
+            background: rgba(139, 92, 246, 0.05);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* FOOTER COMPLETO */
+        .complete-footer {
+            background: #1E293B;
+            padding: 60px 0 30px;
+            border-top: 1px solid #334155;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        .footer-brand .footer-motto {
+            color: #EF4444;
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #F8FAFC;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: #8B5CF6;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #64748B;
+            font-size: 0.85rem;
+        }
+        
+        /* ANIMACIONES */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-main {
+                font-size: 2.5rem;
+            }
+            
+            .direct-contact,
+            .reflective-contact {
+                padding: 30px 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .header-nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .header-nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .nav-cta {
+                margin-left: 0;
+            }
+            
+            .method-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .method-title {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    
+    <!-- Header Fijo CON NAVEGACIÓN CORREGIDA -->
+    <header class="fixed-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html" class="header-logo">
+                    <div class="logo-icon">DT</div>
+                    <div>DTechRevolution</div>
+                </a>
+            </div>
+            
+            <!-- NAVEGACIÓN CORREGIDA - CONTACTO ACTIVO -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="header-nav" id="headerNav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                    <li><a href="proceso.html" class="nav-link">Cómo trabajamos</a></li>
+                    <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Sobre DTech</a></li>
+                    <li><a href="contacto.html" class="nav-link nav-cta active">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="compact-hero">
+        <div class="main-container">
+            <h1 class="hero-main fade-in">
+                Elige cómo prefieres<br>
+                <span class="hero-gradient">contactarnos</span>
+            </h1>
+            <p class="hero-sub fade-in delay-1">
+                Ya sea por mensaje directo o contándonos tu idea con calma.<br>
+                Ambas formas nos llevan al mismo lugar: tu proyecto hecho realidad.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Layout Dual - PSICOLOGÍA APLICADA -->
+    <section class="dual-contact" id="contacto">
+        <div class="main-container">
+            <div class="contact-grid">
+                <!-- COLUMNA IZQUIERDA: Para gente DECIDIDA - CON BOTONES GIGANTES -->
+                <div class="direct-contact fade-in">
+                    <div>
+                        <h2 class="direct-title">Si ya sabes lo que quieres</h2>
+                        <p class="direct-subtitle">
+                            <strong>Contáctanos directamente</strong> por cualquiera de estos medios. 
+                            Ideal para proyectos definidos que necesitan arrancar ya.
+                        </p>
+                        
+                        <!-- BOTONES GIGANTES QUE OCUPAN TODO EL ESPACIO -->
+                        <div class="direct-contact-methods">
+                            <!-- WhatsApp - TODO EL BOTÓN ES CLICKEABLE -->
+                            <a href="https://wa.me/5215512345678" target="_blank" class="contact-method-btn whatsapp-btn">
+                                <div class="method-icon whatsapp-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="method-content">
+                                    <div class="method-title">
+                                        WhatsApp
+                                        <span class="method-arrow">→</span>
+                                    </div>
+                                    <div class="method-detail">+52 55 1234 5678</div>
+                                    <div class="method-note">Respuesta en minutos</div>
+                                </div>
+                            </a>
+                            
+                            <!-- Teléfono - TODO EL BOTÓN ES CLICKEABLE -->
+                            <a href="tel:+525512345678" class="contact-method-btn phone-btn">
+                                <div class="method-icon phone-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="method-content">
+                                    <div class="method-title">
+                                        Llamada telefónica
+                                        <span class="method-arrow">→</span>
+                                    </div>
+                                    <div class="method-detail">+52 55 1234 5678</div>
+                                    <div class="method-note">Lunes a viernes, 9am - 6pm</div>
+                                </div>
+                            </a>
+                            
+                            <!-- Email - TODO EL BOTÓN ES CLICKEABLE -->
+                            <a href="mailto:hola@dtechrevolution.com?subject=Proyecto%20DTech&body=Hola%20DTech,%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20proyecto:" 
+                               class="contact-method-btn email-btn">
+                                <div class="method-icon email-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-content">
+                                    <div class="method-title">
+                                        Correo electrónico
+                                        <span class="method-arrow">→</span>
+                                    </div>
+                                    <div class="method-detail">hola@dtechrevolution.com</div>
+                                    <div class="method-note">Respuesta en menos de 24 horas</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Respuesta en menos de 24 horas</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Conversación directa con nuestro equipo</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Ideal para proyectos urgentes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- COLUMNA DERECHA: Para gente REFLEXIVA -->
+                <div class="reflective-contact fade-in delay-1">
+                    <h2 class="reflective-title">Si prefieres contarlo con calma</h2>
+                    <p class="reflective-subtitle">
+                        Cuéntanos tu idea con tranquilidad. Te leemos, analizamos y te contactamos 
+                        con un plan claro. Perfecto para ideas en desarrollo.
+                    </p>
+                    
+                    <form class="contact-form" id="contact-form">
+                        <div class="input-group">
+                            <label class="input-label">¿Cómo te llamas?</label>
+                            <input type="text" class="form-input" placeholder="Tu nombre" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">¿Cómo te contactamos?</label>
+                            <input type="text" class="form-input" placeholder="Correo o WhatsApp" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">¿Qué idea o proyecto tienes?</label>
+                            <textarea class="form-input form-textarea" placeholder="Cuéntanos con tus palabras. No necesitas ser técnico, nosotros lo entendemos." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span>Enviar mi idea para analizar</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="info-item" style="margin-top: 25px;">
+                        <i class="fas fa-brain"></i>
+                        <span>Analizaremos tu idea y te contactaremos con opciones</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Completo -->
+    <footer class="complete-footer">
+        <div class="main-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="header-logo">
+                        <div class="logo-icon">DT</div>
+                        <div>DTechRevolution</div>
+                    </a>
+                    <p class="footer-motto">Tu lo imaginas, nosotros lo hacemos realidad</p>
+                    <p style="color: #94A3B8; margin-top: 15px; font-size: 0.9rem;">
+                        Ciudad de México<br>
+                        Disponibles de lunes a viernes, 9am - 6pm
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="proceso.html">Proceso</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:hola@dtechrevolution.com">hola@dtechrevolution.com</a></li>
+                        <li><a href="tel:+525512345678">+52 55 1234 5678</a></li>
+                        <li><a href="https://wa.me/5215512345678" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 DTechRevolution. Pensamos. Luego construimos.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Formulario
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const btn = form.querySelector('.submit-btn');
+                    const original = btn.innerHTML;
+                    
+                    // Simular envío
+                    btn.innerHTML = '<i class="fas fa-check"></i><span>¡Enviado! Analizaremos tu idea</span>';
+                    btn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+                    
+                    // Resetear después de 3 segundos
+                    setTimeout(() => {
+                        btn.innerHTML = original;
+                        btn.style.background = 'linear-gradient(135deg, #8B5CF6, #7C3AED)';
+                        form.reset();
+                    }, 3000);
+                });
+            }
+            
+            // Animaciones al scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            
+            // Header scroll effect
+            let lastScroll = 0;
+            const header = document.querySelector('.fixed-header');
+            
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll <= 0) {
+                    header.style.transform = 'translateY(0)';
+                    return;
+                }
+                
+                if (currentScroll > lastScroll && currentScroll > 100) {
+                    // Scrolling down
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrolling up
+                    header.style.transform = 'translateY(0)';
+                }
+                
+                lastScroll = currentScroll;
+            });
+            
+            // Menú móvil toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const headerNav = document.getElementById('headerNav');
+            
+            if (menuToggle && headerNav) {
+                menuToggle.addEventListener('click', function() {
+                    headerNav.classList.toggle('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (headerNav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                
+                // Cerrar menú al hacer clic en enlace
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        headerNav.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

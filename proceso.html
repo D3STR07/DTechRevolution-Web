@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Trabajamos | DTechRevolution | Proceso Claro y Profesional</title>
+    <meta name="description" content="El buen software no se improvisa. Seguimos un proceso pensado para evitar errores, retrabajos y sorpresas. Te explicamos cómo.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://api.dicebear.com/7.x/shapes/svg?seed=DTech">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Nueva paleta: Negro con azul y morado */
+            --color-bg: #0A0E17;           /* Negro azulado oscuro */
+            --color-surface: #141A2C;      /* Superficie oscura */
+            --color-text: #F0F4F8;         /* Texto blanco suave */
+            --color-text-secondary: #8A9BB2; /* Texto secundario azulado */
+            --color-primary: #7C3AED;      /* Morado vibrante */
+            --color-primary-dark: #6D28D9; /* Morado más oscuro */
+            --color-accent: #3B82F6;       /* Azul brillante */
+            --color-accent-dark: #2563EB;  /* Azul más oscuro */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-full: 9999px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(10, 14, 23, 0.98);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--color-text);
+        }
+        
+        .logo-symbol {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-main {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .logo-accent {
+            font-weight: 600;
+            color: var(--color-accent);
+            font-size: 0.9rem;
+        }
+        
+        /* Navigation */
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-text);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: var(--radius-full);
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .process-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .process-hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.3s;
+        }
+        
+        .process-main-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            background: linear-gradient(135deg, var(--color-text) 0%, var(--color-primary) 50%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.5s;
+        }
+        
+        .process-hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.7s;
+        }
+        
+        .process-hero-description {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.9s;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            color: white;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 1.1s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+        }
+        
+        /* Timeline */
+        .process-timeline {
+            position: relative;
+            padding: var(--space-3xl) 0;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                var(--color-primary) 10%, 
+                var(--color-accent) 90%, 
+                transparent 100%);
+        }
+        
+        .process-stages {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-stage {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-3xl);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .process-stage.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .process-stage:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .process-stage:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .stage-point {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--color-bg);
+            border: 4px solid;
+            border-image: linear-gradient(135deg, var(--color-primary), var(--color-accent)) 1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stage-point i {
+            color: var(--color-accent);
+            font-size: 1rem;
+        }
+        
+        .stage-content {
+            width: 45%;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stage-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.2);
+            border-color: var(--color-primary);
+        }
+        
+        .stage-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .stage-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+        
+        .stage-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+        
+        .stage-subtitle {
+            color: var(--color-accent);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: var(--space-md);
+            font-style: italic;
+        }
+        
+        .stage-description {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-md);
+        }
+        
+        .stage-key-message {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(59, 130, 246, 0.1));
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--color-accent);
+            margin: var(--space-lg) 0;
+        }
+        
+        .stage-key-message p {
+            color: var(--color-text);
+            font-weight: 600;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .stage-why {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(124, 58, 237, 0.2);
+        }
+        
+        .stage-why i {
+            color: var(--color-accent);
+            margin-top: 3px;
+        }
+        
+        .stage-why p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Differentiation Section */
+        .process-differentiation {
+            padding: var(--space-3xl) 0;
+            background: linear-gradient(135deg, rgba(20, 26, 44, 0.8), rgba(10, 14, 23, 0.9));
+            border-radius: var(--radius-xl);
+            margin: var(--space-3xl) auto;
+            max-width: 1200px;
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-differentiation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .differentiation-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .differentiation-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .differentiation-title .primary {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .differentiation-subtitle {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .differentiation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        .differentiation-card {
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .differentiation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .differentiation-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+        }
+        
+        .differentiation-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .differentiation-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--color-surface), rgba(124, 58, 237, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: var(--color-accent);
+            font-size: 1.8rem;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+        
+        .differentiation-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-text);
+        }
+        
+        .differentiation-card p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Philosophy Section */
+        .process-philosophy {
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .philosophy-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-xl);
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+        
+        .philosophy-text {
+            font-size: 1.3rem;
+            color: var(--color-text);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: var(--space-xl);
+            background: linear-gradient(135deg, var(--color-text), var(--color-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .philosophy-author {
+            color: var(--color-accent);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .process-cta {
+            padding: var(--space-3xl) 20px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(59, 130, 246, 0.05));
+            border-radius: var(--radius-xl);
+            margin: var(--space-3xl) auto;
+            max-width: 1200px;
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .process-cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-cta-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: var(--space-md);
+            color: var(--color-text);
+        }
+        
+        .process-cta-subtitle {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .process-cta-description {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.8;
+        }
+        
+        .btn-process-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-2xl);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            color: white;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-process-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-process-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+        }
+        
+        .btn-process-cta:hover::before {
+            left: 100%;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-surface);
+            padding: var(--space-3xl) 0 var(--space-xl);
+            margin-top: var(--space-3xl);
+            border-top: 1px solid rgba(124, 58, 237, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        .footer-tagline {
+            color: var(--color-text-secondary);
+            font-style: italic;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--space-md);
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--color-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-secondary);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            color: var(--color-text);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            transform: translateY(-2px);
+        }
+        
+        .footer-links h4,
+        .footer-contact h4 {
+            color: var(--color-text);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-link,
+        .contact-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .footer-link:hover,
+        .contact-link:hover {
+            color: var(--color-accent);
+        }
+        
+        .footer-link.active {
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--color-text-secondary);
+        }
+        
+        .copyright {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .motto {
+            color: var(--color-accent);
+            font-style: italic;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-bg);
+            z-index: 2000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-container {
+            padding: var(--space-xl);
+            height: 100%;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .menu-close {
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-link {
+            display: block;
+            padding: var(--space-md) 0;
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+        }
+        
+        .mobile-link.active {
+            color: var(--color-primary);
+        }
+        
+        .mobile-cta {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            color: white !important;
+            border-radius: var(--radius-full);
+            padding: var(--space-md) var(--space-xl) !important;
+            text-align: center;
+            margin-top: var(--space-xl);
+            border: none !important;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .process-stage {
+                flex-direction: row !important;
+                margin-bottom: var(--space-2xl);
+            }
+            
+            .stage-point {
+                left: 30px;
+                transform: translateX(-50%);
+                width: 30px;
+                height: 30px;
+            }
+            
+            .stage-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+            
+            .process-stage:nth-child(even) .stage-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+            
+            .differentiation-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stage-content {
+                padding: var(--space-lg);
+            }
+            
+            .stage-number {
+                font-size: 2rem;
+            }
+            
+            .stage-title {
+                font-size: 1.3rem;
+            }
+            
+            .process-main-title {
+                font-size: 2rem;
+            }
+            
+            .process-hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-symbol">DT</div>
+                <div class="logo-text">
+                    <span class="logo-main">DTech</span>
+                    <span class="logo-accent">Revolution</span>
+                </div>
+            </a>
+            
+            <!-- Navigation Desktop -->
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                    <li><a href="proceso.html" class="nav-link active">Cómo trabajamos</a></li>
+                    <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Sobre DTech</a></li>
+                    <li><a href="contacto.html" class="nav-link nav-cta">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="process-hero">
+        <div class="container">
+            <div class="process-hero-content">
+                <h1 class="process-main-title">Nuestro Método</h1>
+                
+                <p class="process-hero-subtitle">La excelencia en el software no es accidental</p>
+                
+                <p class="process-hero-description">
+                    Descubre el proceso estructurado que aplicamos en cada proyecto para garantizar resultados sólidos, 
+                    sin sorpresas y con máxima calidad. No construimos al azar; cada paso está cuidadosamente planeado.
+                </p>
+                
+                <a href="#proceso-detallado" class="btn">
+                    <span>Explora nuestro proceso</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="process-timeline" id="proceso-detallado">
+        <div class="container">
+            <div class="process-stages">
+                
+                <!-- Stage 1 -->
+                <div class="process-stage">
+                    <div class="stage-point">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <div class="stage-content">
+                        <div class="stage-header">
+                            <span class="stage-number">01</span>
+                            <h2 class="stage-title">Análisis Profundo</h2>
+                        </div>
+                        
+                        <p class="stage-subtitle">Comprendemos el problema, no solo los síntomas</p>
+                        
+                        <p class="stage-description">
+                            Realizamos entrevistas detalladas con stakeholders, análisis del mercado y 
+                            evaluación del contexto completo. Identificamos las necesidades reales del negocio 
+                            antes de proponer cualquier solución técnica.
+                        </p>
+                        
+                        <div class="stage-key-message">
+                            <p>No construimos lo que nos piden; construimos lo que realmente necesitan.</p>
+                        </div>
+                        
+                        <div class="stage-why">
+                            <i class="fas fa-lightbulb"></i>
+                            <p>Esta fase demuestra nuestro compromiso con la comprensión real del negocio. Por ejemplo, si necesitas un sistema de inventario, primero analizamos tus procesos actuales, puntos de dolor y objetivos de crecimiento.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stage 2 -->
+                <div class="process-stage">
+                    <div class="stage-point">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    
+                    <div class="stage-content">
+                        <div class="stage-header">
+                            <span class="stage-number">02</span>
+                            <h2 class="stage-title">Estrategia y Planificación</h2>
+                        </div>
+                        
+                        <p class="stage-subtitle">Definimos la ruta óptima hacia el éxito</p>
+                        
+                        <p class="stage-description">
+                            Evaluamos opciones técnicas, arquitectónicas y de implementación. 
+                            Creamos un roadmap detallado con hitos, entregables y métricas de éxito. 
+                            Establecemos expectativas realistas y transparentes desde el inicio.
+                        </p>
+                        
+                        <div class="stage-key-message">
+                            <p>Un plan sólido es la mitad del trabajo realizado</p>
+                        </div>
+                        
+                        <div class="stage-why">
+                            <i class="fas fa-filter"></i>
+                            <p>Mostramos criterio profesional al recomendar soluciones apropiadas. Por ejemplo, no sugeriremos una arquitectura compleja para una solución simple, sino la opción más eficiente para sus necesidades.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stage 3 -->
+                <div class="process-stage">
+                    <div class="stage-point">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    
+                    <div class="stage-content">
+                        <div class="stage-header">
+                            <span class="stage-number">03</span>
+                            <h2 class="stage-title">Diseño de Solución</h2>
+                        </div>
+                        
+                        <p class="stage-subtitle">Planificamos antes de programar</p>
+                        
+                        <p class="stage-description">
+                            Creamos wireframes interactivos, diagramas de arquitectura y especificaciones técnicas detalladas. 
+                            Diseñamos la experiencia de usuario, los flujos de trabajo y la interfaz visual. 
+                            Validamos cada decisión de diseño contigo antes de comenzar el desarrollo.
+                        </p>
+                        
+                        <div class="stage-key-message">
+                            <p>Un buen diseño ahorra tiempo y dinero en el desarrollo</p>
+                        </div>
+                        
+                        <div class="stage-why">
+                            <i class="fas fa-ruler-combined"></i>
+                            <p>Demostramos rigor profesional. Por ejemplo, diseñaremos todos los estados posibles de una pantalla (cargando, vacío, con error, éxito) antes de escribir una sola línea de código.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stage 4 -->
+                <div class="process-stage">
+                    <div class="stage-point">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    
+                    <div class="stage-content">
+                        <div class="stage-header">
+                            <span class="stage-number">04</span>
+                            <h2 class="stage-title">Desarrollo Técnico</h2>
+                        </div>
+                        
+                        <p class="stage-subtitle">Construimos con calidad desde el primer día</p>
+                        
+                        <p class="stage-description">
+                            Implementamos usando las mejores prácticas de la industria: código limpio, 
+                            patrones de diseño apropiados, testing automatizado y documentación completa. 
+                            Seguimos metodologías ágiles con entregas incrementales y revisión constante.
+                        </p>
+                        
+                        <div class="stage-key-message">
+                            <p>La calidad no es un paso final; está integrada en nuestro proceso</p>
+                        </div>
+                        
+                        <div class="stage-why">
+                            <i class="fas fa-cogs"></i>
+                            <p>Nuestra experiencia técnica se refleja en cada línea de código. Por ejemplo, implementamos pruebas unitarias que garantizan que las funcionalidades críticas funcionen correctamente desde el inicio.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stage 5 -->
+                <div class="process-stage">
+                    <div class="stage-point">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    
+                    <div class="stage-content">
+                        <div class="stage-header">
+                            <span class="stage-number">05</span>
+                            <h2 class="stage-title">Pruebas Exhaustivas</h2>
+                        </div>
+                        
+                        <p class="stage-subtitle">Garantizamos la calidad antes de la entrega</p>
+                        
+                        <p class="stage-description">
+                            Realizamos múltiples niveles de testing: unitario, integración, funcional, 
+                            de rendimiento y de seguridad. Simulamos escenarios reales de uso y casos 
+                            extremos. Corregimos y refinamos hasta que todo funcione perfectamente.
+                        </p>
+                        
+                        <div class="stage-key-message">
+                            <p>Los errores se detectan en nuestro entorno, no en producción</p>
+                        </div>
+                        
+                        <div class="stage-why">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Generamos confianza al mostrar nuestro compromiso con la calidad. Por ejemplo, para una aplicación de e-commerce, probamos escenarios como procesamiento de pagos, manejo de inventario y flujos de usuario complejos antes de la entrega.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stage 6 -->
+                <div class="process-stage">
+                    <div class="stage-point">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    
+                    <div class="stage-content">
+                        <div class="stage-header">
+                            <span class="stage-number">06</span>
+                            <h2 class="stage-title">Implementación y Soporte</h2>
+                        </div>
+                        
+                        <p class="stage-subtitle">Acompañamiento continuo post-implementación</p>
+                        
+                        <p class="stage-description">
+                            Gestionamos el despliegue en producción, la migración de datos y la capacitación 
+                            del personal. Ofrecemos soporte técnico, monitoreo proactivo y planes de mejora 
+                            continua. Tu éxito es nuestra prioridad a largo plazo.
+                        </p>
+                        
+                        <div class="stage-key-message">
+                            <p>Nuestra relación no termina con la entrega; evoluciona</p>
+                        </div>
+                        
+                        <div class="stage-why">
+                            <i class="fas fa-handshake"></i>
+                            <p>Demostramos que somos un partner estratégico, no solo un proveedor. Por ejemplo, ofrecemos soporte priorizado durante los primeros meses y análisis periódicos de rendimiento para optimizar el sistema.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiation Section -->
+    <section class="process-differentiation">
+        <div class="container">
+            <div class="differentiation-header">
+                <h2 class="differentiation-title">Lo que nos <span class="primary">diferencia</span></h2>
+                <p class="differentiation-subtitle">No es solo lo que hacemos, es cómo lo hacemos</p>
+            </div>
+            
+            <div class="differentiation-grid">
+                <div class="differentiation-card">
+                    <div class="differentiation-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>Pensamiento Estratégico</h3>
+                    <p>Analizamos el panorama completo antes de actuar. No saltamos a soluciones técnicas sin entender primero el contexto de negocio y los objetivos reales.</p>
+                </div>
+                
+                <div class="differentiation-card">
+                    <div class="differentiation-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Transparencia Radical</h3>
+                    <p>Compartimos el progreso en tiempo real, mostramos los desafíos encontrados y mantenemos comunicación abierta en cada etapa del proyecto.</p>
+                </div>
+                
+                <div class="differentiation-card">
+                    <div class="differentiation-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visión de Futuro</h3>
+                    <p>Construimos sistemas escalables que crecen con tu negocio. No solo resolvemos problemas actuales; anticipamos necesidades futuras.</p>
+                </div>
+                
+                <div class="differentiation-card">
+                    <div class="differentiation-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Compromiso con la Calidad</h3>
+                    <p>Implementamos múltiples capas de pruebas y revisiones. Cada línea de código pasa por procesos rigurosos de control de calidad.</p>
+                </div>
+                
+                <div class="differentiation-card">
+                    <div class="differentiation-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Comunicación Clara</h3>
+                    <p>Explicamos conceptos técnicos en lenguaje sencillo. Mantenemos reuniones regulares de seguimiento y reportes de progreso comprensibles.</p>
+                </div>
+                
+                <div class="differentiation-card">
+                    <div class="differentiation-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Pasón por los Resultados</h3>
+                    <p>Nos involucramos profundamente en cada proyecto. No somos solo ejecutores; somos colaboradores comprometidos con el éxito de tu negocio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="process-philosophy">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                
+                <p class="philosophy-text">
+                    "La excelencia técnica es necesaria, pero el verdadero valor está en entender 
+                    el negocio y construir soluciones que realmente impacten positivamente."
+                </p>
+                
+                <p class="philosophy-author">— Equipo DTechRevolution</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="process-cta">
+        <div class="container">
+            <div class="process-cta-content">
+                <h2 class="process-cta-title">¿Listo para transformar su visión en realidad?</h2>
+                
+                <p class="process-cta-subtitle">Conversemos sobre su proyecto</p>
+                
+                <p class="process-cta-description">
+                    Si busca un equipo que combine experiencia técnica con comprensión profunda del negocio, 
+                    estamos aquí para escuchar sus necesidades y proponer la mejor solución. 
+                    Programemos una reunión exploratoria sin compromiso.
+                </p>
+                
+                <a href="contacto.html" class="btn-process-cta">
+                    <span>Agendar una consulta</span>
+                    <i class="fas fa-calendar-check"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-symbol">DT</div>
+                        <div class="logo-text">
+                            <span class="logo-main">DTech</span>
+                            <span class="logo-accent">Revolution</span>
+                        </div>
+                    </a>
+                    
+                    <p class="footer-tagline">
+                        Innovación con propósito, tecnología con resultados
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="servicios.html" class="footer-link">Servicios</a></li>
+                        <li><a href="proceso.html" class="footer-link active">Nuestro método</a></li>
+                        <li><a href="proyectos.html" class="footer-link">Proyectos</a></li>
+                        <li><a href="nosotros.html" class="footer-link">Sobre DTech</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="servicios.html" class="footer-link">Software a Medida</a></li>
+                        <li><a href="servicios.html" class="footer-link">Desarrollo Web</a></li>
+                        <li><a href="servicios.html" class="footer-link">Apps Móviles</a></li>
+                        <li><a href="servicios.html" class="footer-link">Backend & Datos</a></li>
+                        <li><a href="servicios.html" class="footer-link">Estrategia Visual</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <a href="mailto:hola@dtechrevolution.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        hola@dtechrevolution.com
+                    </a>
+                    <a href="https://wa.me/5215512345678" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="tel:+525512345678" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        +52 55 1234 5678
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 DTechRevolution. Todos los derechos reservados.</p>
+                <p class="motto">Transformando ideas en soluciones digitales</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+                <a href="index.html" class="logo">
+                    <div class="logo-symbol">DT</div>
+                    <div class="logo-text">
+                        <span class="logo-main">DTech</span>
+                        <span class="logo-accent">Revolution</span>
+                    </div>
+                </a>
+                
+                <button class="menu-close" id="menuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html" class="mobile-link">Inicio</a></li>
+                    <li><a href="servicios.html" class="mobile-link">Servicios</a></li>
+                    <li><a href="proceso.html" class="mobile-link active">Nuestro método</a></li>
+                    <li><a href="proyectos.html" class="mobile-link">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="mobile-link">Sobre DTech</a></li>
+                    <li><a href="contacto.html" class="mobile-link mobile-cta">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const menuClose = document.getElementById('menuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        menuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                if (href === '#') return;
+                
+                e.preventDefault();
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Improved animation on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Si es una tarjeta de diferenciación, añadir animación escalonada
+                    if (entry.target.classList.contains('differentiation-card')) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                        entry.target.style.animationDelay = Math.random() * 0.3 + 's';
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline stages
+        document.querySelectorAll('.process-stage').forEach((stage, index) => {
+            stage.style.transitionDelay = (index * 0.1) + 's';
+            observer.observe(stage);
+        });
+
+        // Observe differentiation cards
+        document.querySelectorAll('.differentiation-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Observe CTA section
+        const ctaContent = document.querySelector('.process-cta-content');
+        if (ctaContent) observer.observe(ctaContent);
+
+        // Observe philosophy section
+        const philosophyContent = document.querySelector('.philosophy-content');
+        if (philosophyContent) observer.observe(philosophyContent);
+    </script>
+</body>
+</html>

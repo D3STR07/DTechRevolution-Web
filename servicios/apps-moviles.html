@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicaciones Móviles para tu Negocio | DTechRevolution | Lleva tu negocio al bolsillo de tus clientes</title>
+    <meta name="description" content="Creamos aplicaciones para celulares que hacen crecer tu negocio. Simple, útil y siempre a mano para tus clientes.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://api.dicebear.com/7.x/shapes/svg?seed=DTech">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/index.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos específicos para apps-moviles.html */
+        
+        /* Hero específico - moderno y móvil */
+        .mobile-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(21, 21, 33, 0.95) 0%, rgba(30, 30, 46, 0.95) 100%);
+        }
+        
+        .mobile-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .mobile-hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+        
+        @media (min-width: 992px) {
+            .mobile-hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .mobile-hero-text {
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .mobile-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .mobile-breadcrumb a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+        
+        .mobile-breadcrumb i {
+            font-size: 0.7rem;
+        }
+        
+        .mobile-main-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-md);
+        }
+        
+        .mobile-subtitle {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            color: var(--color-primary);
+            font-style: italic;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .mobile-hero-description {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .mobile-hero-visual {
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .mobile-hero-icon {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--color-primary), #1e40af);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mobile-hero-number {
+            font-family: var(--font-heading);
+            font-size: 12rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            opacity: 0.1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+            z-index: 1;
+        }
+        
+        /* Sección: La realidad móvil */
+        .mobile-reality {
+            padding: var(--space-2xl) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .mobile-section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .mobile-section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .mobile-section-subtitle {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .reality-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .reality-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .reality-highlight {
+            background: rgba(59, 130, 246, 0.1);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-primary);
+            margin: var(--space-xl) 0;
+        }
+        
+        .reality-highlight p {
+            font-size: 1.3rem;
+            color: var(--color-text);
+            font-style: italic;
+            margin: 0;
+            text-align: center;
+        }
+        
+        /* Sección: ¿Qué puede hacer tu app? */
+        .mobile-capabilities {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .capabilities-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .capabilities-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .capabilities-visual {
+            text-align: center;
+        }
+        
+        .capabilities-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: var(--color-primary);
+            font-size: 2.5rem;
+        }
+        
+        .capabilities-list {
+            list-style: none;
+        }
+        
+        .capability-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            transition: transform 0.3s ease;
+        }
+        
+        .capability-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .capability-item i {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-top: 2px;
+        }
+        
+        .capability-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xs);
+            color: var(--color-text);
+        }
+        
+        .capability-item p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: ¿Para quién es una app? */
+        .mobile-for-whom {
+            padding: var(--space-2xl) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .for-whom-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        @media (min-width: 768px) {
+            .for-whom-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .for-whom-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .for-whom-card {
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .for-whom-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+        
+        .for-whom-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary), #1e40af);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .for-whom-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-text);
+        }
+        
+        .for-whom-description {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Cómo lo hacemos simple */
+        .mobile-simple-process {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .simple-process-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .simple-process-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .simple-process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .simple-process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .simple-process-step {
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-primary);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 30px;
+            height: 30px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .simple-process-step h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .simple-process-step p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Lo que incluye tu app */
+        .mobile-includes {
+            padding: var(--space-2xl) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .includes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        @media (min-width: 768px) {
+            .includes-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .include-item {
+            text-align: center;
+            position: relative;
+            padding: var(--space-xl);
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            transition: transform 0.3s ease;
+        }
+        
+        .include-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .include-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .include-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .include-description {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Integración con otros servicios */
+        .mobile-integration {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .integration-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .integration-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-surface);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: var(--color-primary);
+            font-size: 2rem;
+        }
+        
+        .integration-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .integration-benefits {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .integration-benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .integration-benefit {
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            text-align: left;
+        }
+        
+        .integration-benefit strong {
+            color: var(--color-text);
+            display: block;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .integration-benefit span {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* CTA específico */
+        .mobile-cta {
+            padding: var(--space-2xl) 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(124, 58, 237, 0.05));
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .mobile-cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .mobile-cta-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: var(--space-md);
+        }
+        
+        .mobile-cta-description {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.8;
+        }
+        
+        .mobile-cta-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .mobile-cta-feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--color-text);
+            font-size: 0.95rem;
+        }
+        
+        .mobile-cta-feature i {
+            color: var(--color-primary);
+        }
+        
+        .btn-mobile-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-2xl);
+            background: var(--color-primary);
+            color: white;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn-mobile-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Botón volver */
+        .mobile-back-to-services {
+            text-align: center;
+            margin-top: var(--space-2xl);
+        }
+        
+        .btn-mobile-back {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: transparent;
+            color: var(--color-text);
+            border: 2px solid var(--color-surface-light);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-mobile-back:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-section-header,
+        .reality-content,
+        .capabilities-content,
+        .for-whom-grid,
+        .simple-process-content,
+        .includes-grid,
+        .integration-content,
+        .mobile-cta-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .mobile-section-header.visible,
+        .reality-content.visible,
+        .capabilities-content.visible,
+        .for-whom-grid.visible,
+        .simple-process-content.visible,
+        .includes-grid.visible,
+        .integration-content.visible,
+        .mobile-cta-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .capability-item,
+        .for-whom-card,
+        .simple-process-step,
+        .include-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .capability-item.visible,
+        .for-whom-card.visible,
+        .simple-process-step.visible,
+        .include-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Elementos de construcción -->
+    <div class="construction-lines" id="construction-lines"></div>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scroll-indicator">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Header Minimalista -->
+    <header class="header" id="header">
+        <div class="container">
+            <!-- Logo limpio -->
+            <a href="../index.html" class="logo">
+                <div class="logo-symbol">
+                    <span class="d">D</span>
+                    <span class="t">T</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">DTech</span>
+                    <span class="logo-accent">Revolution</span>
+                </div>
+            </a>
+            
+            <!-- Navegación Desktop -->
+            <nav class="nav">
+                <ul>
+                    <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="../servicios.html" class="nav-link active">Servicios</a></li>
+                    <li><a href="../proceso.html" class="nav-link">Cómo trabajamos</a></li>
+                    <li><a href="../proyectos.html" class="nav-link">Proyectos</a></li>
+                    <li><a href="../nosotros.html" class="nav-link">Sobre DTech</a></li>
+                    <li><a href="../contacto.html" class="nav-link nav-cta">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Hero específico del servicio -->
+    <section class="mobile-hero">
+        <div class="container">
+            <div class="mobile-hero-content">
+                <div class="mobile-hero-text">
+                    <div class="mobile-breadcrumb">
+                        <a href="../servicios.html">Servicios</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Aplicaciones Móviles</span>
+                    </div>
+                    
+                    <h1 class="mobile-main-title">Apps <span class="primary">Móviles</span></h1>
+                    
+                    <p class="mobile-subtitle">Lleva tu negocio al bolsillo de tus clientes.</p>
+                    
+                    <p class="mobile-hero-description">
+                        Imagina que tu negocio está siempre en el celular de tus clientes. Una aplicación 
+                        que les recuerda que existes, que les hace la vida más fácil y que les da todo 
+                        lo que necesitan de ti con solo un toque.
+                    </p>
+                    
+                    <a href="#consulta-mobile" class="btn btn-primary">
+                        <span class="btn-text">Quiero una app para mi negocio</span>
+                        <i class="fas fa-mobile-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="mobile-hero-visual">
+                    <div class="mobile-hero-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="mobile-hero-number">03</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: La realidad móvil -->
+    <section class="mobile-reality">
+        <div class="container">
+            <div class="mobile-section-header">
+                <h2 class="mobile-section-title">La <span class="primary">realidad</span> de hoy</h2>
+                <p class="mobile-section-subtitle">¿Dónde está tu cliente la mayor parte del tiempo?</p>
+            </div>
+            
+            <div class="reality-content">
+                <div class="reality-text">
+                    <p>
+                        Piensa un momento: ¿cuántas veces al día revisas tu celular? Ahora piensa: 
+                        tus clientes hacen exactamente lo mismo.
+                    </p>
+                    
+                    <p>
+                        Tu página web es importante, pero está en una computadora. 
+                        Tu cliente está en su celular. Y cuando te busca desde su celular, 
+                        ¿qué encuentra? Tu página web, que está bien... pero imagina si en lugar de eso, 
+                        encuentra tu aplicación, diseñada específicamente para su celular.
+                    </p>
+                </div>
+                
+                <div class="reality-highlight">
+                    <p>
+                        "Una aplicación no es un lujo. Es poner tu negocio donde ya está tu cliente."
+                    </p>
+                </div>
+                
+                <div class="reality-text">
+                    <p>
+                        No se trata de tecnología complicada. Se trata de estar presente. De hacerte 
+                        fácil de encontrar, fácil de usar y fácil de recordar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: ¿Qué puede hacer tu app? -->
+    <section class="mobile-capabilities">
+        <div class="container">
+            <div class="mobile-section-header">
+                <h2 class="mobile-section-title">¿Qué puede hacer <span class="primary">tu app</span>?</h2>
+                <p class="mobile-section-subtitle">Funciones simples que hacen una gran diferencia.</p>
+            </div>
+            
+            <div class="capabilities-content">
+                <div class="capabilities-visual">
+                    <div class="capabilities-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <p style="color: var(--color-text-secondary); max-width: 300px; margin: 0 auto;">
+                        No hablamos de apps complicadas. Hablamos de herramientas simples que resuelven 
+                        problemas reales para tus clientes.
+                    </p>
+                </div>
+                
+                <div class="capabilities-list">
+                    <div class="capability-item">
+                        <i class="fas fa-bell"></i>
+                        <div>
+                            <h4>Notificaciones directas</h4>
+                            <p>Avisa a tus clientes sobre ofertas, eventos o novedades. Llegan directamente a su pantalla.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <h4>Reservas y citas</h4>
+                            <p>Permite que reserven mesa, agenden una cita o aparten un producto desde su celular.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div>
+                            <h4>Catálogo de productos</h4>
+                            <p>Muestra lo que ofreces, con fotos, precios y descripciones. Todo organizado y fácil de navegar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: ¿Para quién es una app? -->
+    <section class="mobile-for-whom">
+        <div class="container">
+            <div class="mobile-section-header">
+                <h2 class="mobile-section-title">¿Para quién es <span class="primary">ideal</span>?</h2>
+                <p class="mobile-section-subtitle">Si tienes un negocio que se beneficia de estar cerca de tus clientes.</p>
+            </div>
+            
+            <div class="for-whom-grid">
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="for-whom-title">Restaurantes y cafeterías</h3>
+                    <p class="for-whom-description">Para mostrar tu menú, recibir pedidos y permitir reservas desde el celular.</p>
+                </div>
+                
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="for-whom-title">Gimnasios y estudios</h3>
+                    <p class="for-whom-description">Para agendar clases, ver horarios y hacer seguimiento del progreso.</p>
+                </div>
+                
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 class="for-whom-title">Tiendas locales</h3>
+                    <p class="for-whom-description">Para mostrar tus productos, anunciar ofertas y vender directamente.</p>
+                </div>
+                
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="for-whom-title">Servicios profesionales</h3>
+                    <p class="for-whom-description">Para consultorios, despachos o talleres que quieren facilitar las citas.</p>
+                </div>
+                
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="for-whom-title">Clases y cursos</h3>
+                    <p class="for-whom-description">Para compartir material, anunciar clases y mantener contacto con estudiantes.</p>
+                </div>
+                
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="for-whom-title">Salud y bienestar</h3>
+                    <p class="for-whom-description">Para recordatorios de citas, seguimiento de tratamientos o consejos diarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Cómo lo hacemos simple -->
+    <section class="mobile-simple-process">
+        <div class="container">
+            <div class="mobile-section-header">
+                <h2 class="mobile-section-title">Cómo lo <span class="primary">hacemos</span> simple</h2>
+                <p class="mobile-section-subtitle">Sin complicaciones. Paso a paso.</p>
+            </div>
+            
+            <div class="simple-process-content">
+                <div class="simple-process-text">
+                    <p>
+                        En DTechRevolution creemos que crear una app debe ser simple, no un dolor de cabeza. 
+                        Nosotros nos encargamos de todo el proceso técnico. Tú solo piensa en lo que quieres 
+                        que haga tu aplicación.
+                    </p>
+                </div>
+                
+                <div class="simple-process-steps">
+                    <div class="simple-process-step">
+                        <div class="step-number">1</div>
+                        <h4>Platicamos sobre tu negocio</h4>
+                        <p>Nos cuentas qué haces, quiénes son tus clientes y qué problemas les quieres resolver con la app.</p>
+                    </div>
+                    
+                    <div class="simple-process-step">
+                        <div class="step-number">2</div>
+                        <h4>Diseñamos juntos</h4>
+                        <p>Te mostramos cómo se verá tu app. Tú nos das tu opinión y hacemos cambios hasta que te encante.</p>
+                    </div>
+                    
+                    <div class="simple-process-step">
+                        <div class="step-number">3</div>
+                        <h4>La construimos</h4>
+                        <p>Nosotros hacemos todo el trabajo técnico. No necesitas saber de programación, nosotros lo sabemos.</p>
+                    </div>
+                    
+                    <div class="simple-process-step">
+                        <div class="step-number">4</div>
+                        <h4>La probamos contigo</h4>
+                        <p>Te damos acceso para que pruebes la app antes de lanzarla. Asegurándonos de que todo funcione perfecto.</p>
+                    </div>
+                </div>
+                
+                <div class="simple-process-text">
+                    <p>
+                        <strong>No es magia, es método.</strong> Tenemos un proceso probado que hace que crear 
+                        una aplicación sea tan simple como contar 1, 2, 3, 4.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Lo que incluye tu app -->
+    <section class="mobile-includes">
+        <div class="container">
+            <div class="mobile-section-header">
+                <h2 class="mobile-section-title">Lo que <span class="primary">incluye</span> tu app</h2>
+                <p class="mobile-section-subtitle">Todo lo necesario para que funcione desde el primer día.</p>
+            </div>
+            
+            <div class="includes-grid">
+                <div class="include-item">
+                    <div class="include-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="include-title">App móvil Android</h3>
+                    <p class="include-description"> Aplicaciones Android optimizadas para rendimiento y escalabilidad.
+                        Listas para crecer y expandirse a otras plataformas</p>
+                </div>
+                
+                <div class="include-item">
+                    <div class="include-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="include-title">Diseño personalizado</h3>
+                    <p class="include-description">Se ve como tu negocio, con tus colores, tu logo y tu estilo.</p>
+                </div>
+                
+                <div class="include-item">
+                    <div class="include-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="include-title">Panel de control</h3>
+                    <p class="include-description">Un lugar simple donde tú actualizas contenido, productos o noticias.</p>
+                </div>
+                
+                <div class="include-item">
+                    <div class="include-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3 class="include-title">Alojamiento incluido</h3>
+                    <p class="include-description">La app vive en internet. Nosotros nos encargamos de que siempre esté disponible.</p>
+                </div>
+                
+                <div class="include-item">
+                    <div class="include-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="include-title">Seguridad básica</h3>
+                    <p class="include-description">Protegemos la información de tus clientes y de tu negocio.</p>
+                </div>
+                
+                <div class="include-item">
+                    <div class="include-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="include-title">Soporte</h3>
+                    <p class="include-description">Te ayudamos con cualquier duda o ajuste que necesites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Integración con otros servicios -->
+    <section class="mobile-integration">
+        <div class="container">
+            <div class="mobile-section-header">
+                <h2 class="mobile-section-title">Todo <span class="primary">conectado</span></h2>
+                <p class="mobile-section-subtitle">Tu app no vive sola. Se conecta con todo lo que ya tienes.</p>
+            </div>
+            
+            <div class="integration-content">
+                <div class="integration-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                
+                <div class="integration-text">
+                    <p>
+                        Si ya tienes una página web con nosotros, tu aplicación se conectará automáticamente. 
+                        Si no la tienes, la podemos crear juntos. Lo importante es que todo funcione como un solo sistema.
+                    </p>
+                </div>
+                
+                <div class="integration-benefits">
+                    <div class="integration-benefit">
+                        <strong>Con tu página web</strong>
+                        <span>Los clientes que entran desde la computadora y los que usan la app ven la misma información actualizada.</span>
+                    </div>
+                    
+                    <div class="integration-benefit">
+                        <strong>Con tu inventario</strong>
+                        <span>Si vendes productos, cuando algo se agota en la app, también se muestra agotado en tu web.</span>
+                    </div>
+                    
+                    <div class="integration-benefit">
+                        <strong>Con tus redes sociales</strong>
+                        <span>Puedes compartir contenido de tu app directamente en Instagram, Facebook o WhatsApp.</span>
+                    </div>
+                    
+                    <div class="integration-benefit">
+                        <strong>Con tu sistema de citas</strong>
+                        <span>Si ya usas un calendario digital, lo conectamos para que las reservas de la app se sincronicen automáticamente.</span>
+                    </div>
+                </div>
+                
+                <div class="integration-text">
+                    <p>
+                        <strong>No empiezas desde cero.</strong> 
+                        Aprovechamos lo que ya tienes y lo conectamos con tu nueva app. 
+                        Así todo funciona mejor y tú ahorras tiempo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA específico -->
+    <section class="mobile-cta" id="consulta-mobile">
+        <div class="container">
+            <div class="mobile-cta-content">
+                <h2 class="mobile-cta-title">¿Tu negocio merece una <span class="primary">app</span>?</h2>
+                
+                <p class="mobile-cta-description">
+                    Te ofrecemos una consulta gratuita para analizar si una aplicación móvil 
+                    tiene sentido para tu negocio. Sin compromiso, sin tecnicismos, solo una 
+                    conversación honesta sobre lo que podría funcionar para ti.
+                </p>
+                
+                <div class="mobile-cta-features">
+                    <div class="mobile-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Análisis de tu negocio</span>
+                    </div>
+                    <div class="mobile-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Ideas de funciones posibles</span>
+                    </div>
+                    <div class="mobile-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Presupuesto aproximado</span>
+                    </div>
+                    <div class="mobile-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sin compromiso de compra</span>
+                    </div>
+                </div>
+                
+                <a href="../contacto.html?service=apps-moviles" class="btn-mobile-cta">
+                    <span>Quiero hablar sobre una app para mi negocio</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="mobile-back-to-services">
+                <a href="../servicios.html" class="btn-mobile-back">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Ver todos los servicios</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <div class="logo-symbol">
+                            <span class="d">D</span>
+                            <span class="t">T</span>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">DTech</span>
+                            <span class="logo-accent">Revolution</span>
+                        </div>
+                    </a>
+                    
+                    <p class="footer-tagline">
+                        Pensamos. Luego construimos.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul>
+                        <li><a href="../index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="../servicios.html" class="footer-link">Servicios</a></li>
+                        <li><a href="../proceso.html" class="footer-link">Cómo trabajamos</a></li>
+                        <li><a href="../proyectos.html" class="footer-link">Proyectos</a></li>
+                        <li><a href="../nosotros.html" class="footer-link">Sobre DTech</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul>
+                        <li><a href="software-medida.html" class="footer-link">Software a Medida</a></li>
+                        <li><a href="desarrollo-web.html" class="footer-link">Desarrollo Web</a></li>
+                        <li><a href="apps-moviles.html" class="footer-link active">Apps Móviles</a></li>
+                        <li><a href="backend-datos.html" class="footer-link">Backend & Datos</a></li>
+                        <li><a href="estrategia-visual.html" class="footer-link">Estrategia Visual</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contacto</h4>
+                    <a href="mailto:hola@dtechrevolution.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        hola@dtechrevolution.com
+                    </a>
+                    <a href="https://wa.me/5215512345678" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="tel:+525512345678" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        +52 55 1234 5678
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 DTechRevolution. Todos los derechos reservados.</p>
+                <p class="motto">Tecnología con propósito.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+                <a href="../index.html" class="logo">
+                    <div class="logo-symbol">
+                        <span class="d">D</span>
+                        <span class="t">T</span>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">DTech</span>
+                        <span class="logo-accent">Revolution</span>
+                    </div>
+                </a>
+                
+                <button class="menu-close" aria-label="Cerrar menú" id="menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="../index.html" class="mobile-link">Inicio</a></li>
+                    <li><a href="../servicios.html" class="mobile-link active">Servicios</a></li>
+                    <li><a href="../proceso.html" class="mobile-link">Cómo trabajamos</a></li>
+                    <li><a href="../proyectos.html" class="mobile-link">Proyectos</a></li>
+                    <li><a href="../nosotros.html" class="mobile-link">Sobre DTech</a></li>
+                    <li><a href="../contacto.html" class="mobile-link mobile-cta">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    
+    <!-- Script para animaciones específicas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animaciones para la página de apps móviles
+            function animateMobilePage() {
+                const sections = document.querySelectorAll('.mobile-section-header, .reality-content, .capabilities-content, .for-whom-grid, .simple-process-content, .includes-grid, .integration-content, .mobile-cta-content');
+                const items = document.querySelectorAll('.capability-item, .for-whom-card, .simple-process-step, .include-item');
+                
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    
+                    if (rect.top <= windowHeight * 0.85) {
+                        section.classList.add('visible');
+                    }
+                });
+                
+                items.forEach((item, index) => {
+                    const rect = item.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    
+                    if (rect.top <= windowHeight * 0.85) {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 100); // Delay escalonado
+                    }
+                });
+            }
+            
+            // Animar hero inmediatamente
+            setTimeout(() => {
+                const heroText = document.querySelector('.mobile-hero-text');
+                const heroVisual = document.querySelector('.mobile-hero-visual');
+                if (heroText) heroText.style.opacity = '1';
+                if (heroVisual) heroVisual.style.opacity = '1';
+            }, 300);
+            
+            window.addEventListener('scroll', animateMobilePage);
+            animateMobilePage(); // Ejecutar una vez al cargar
+            
+            // Actualizar breadcrumb activo
+            const currentPageLink = document.querySelector('.footer-links .footer-link.active');
+            if (currentPageLink) {
+                currentPageLink.style.color = 'var(--color-primary)';
+                currentPageLink.style.fontWeight = '600';
+            }
+        });
+    </script>
+</body>
+</html>

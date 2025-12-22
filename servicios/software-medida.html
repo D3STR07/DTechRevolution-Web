@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software a Medida | DTechRevolution | Soluciones personalizadas</title>
+    <meta name="description" content="Desarrollo de software personalizado para procesos únicos. Sistemas hechos desde cero que se adaptan perfectamente a tu negocio.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://api.dicebear.com/7.x/shapes/svg?seed=DTech">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/index.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos específicos para software-medida.html */
+        
+        /* Hero del servicio específico */
+        .service-specific-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(10, 10, 15, 0.95) 0%, rgba(21, 21, 33, 0.95) 100%);
+        }
+        
+        .service-specific-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .service-hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+        
+        @media (min-width: 992px) {
+            .service-hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .service-hero-text {
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .service-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .service-breadcrumb a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .service-breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+        
+        .service-breadcrumb i {
+            font-size: 0.7rem;
+        }
+        
+        .service-main-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-md);
+        }
+        
+        .service-subtitle {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            color: var(--color-primary);
+            font-style: italic;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .service-hero-description {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .service-hero-visual {
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .service-hero-icon {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-hero-number {
+            font-family: var(--font-heading);
+            font-size: 12rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            opacity: 0.1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+            z-index: 1;
+        }
+        
+        /* Sección: ¿Qué es? */
+        .service-what-is {
+            padding: var(--space-2xl) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .service-section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .service-section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .service-section-subtitle {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .what-is-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .what-is-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .what-is-highlight {
+            background: rgba(124, 58, 237, 0.1);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-primary);
+            margin: var(--space-xl) 0;
+        }
+        
+        .what-is-highlight p {
+            font-size: 1.2rem;
+            color: var(--color-text);
+            font-style: italic;
+            margin: 0;
+        }
+        
+        /* Sección: Para quién es */
+        .service-for-who {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .for-who-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .for-who-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .for-who-visual {
+            text-align: center;
+        }
+        
+        .for-who-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: var(--color-primary);
+            font-size: 2.5rem;
+        }
+        
+        .for-who-list {
+            list-style: none;
+        }
+        
+        .for-who-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            transition: transform 0.3s ease;
+        }
+        
+        .for-who-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .for-who-item i {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-top: 2px;
+        }
+        
+        .for-who-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xs);
+            color: var(--color-text);
+        }
+        
+        .for-who-item p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Problemas que resuelve */
+        .service-problems {
+            padding: var(--space-2xl) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .problems-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        @media (min-width: 768px) {
+            .problems-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .problems-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .problem-card {
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+        
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .problem-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-text);
+        }
+        
+        .problem-description {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Nuestra diferencia */
+        .service-difference {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .difference-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .difference-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .difference-points {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .difference-points {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .difference-point {
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-primary);
+        }
+        
+        .difference-point h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .difference-point p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Sección: Proceso */
+        .service-process {
+            padding: var(--space-2xl) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .process-steps-detailed {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        @media (min-width: 768px) {
+            .process-steps-detailed {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .process-step-detailed {
+            text-align: center;
+            position: relative;
+        }
+        
+        .process-step-detailed:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -40px;
+            width: 80px;
+            height: 2px;
+            background: var(--color-surface-light);
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .process-step-detailed:not(:last-child)::after {
+                display: block;
+            }
+        }
+        
+        .step-number-detailed {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: white;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .step-title-detailed {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text);
+        }
+        
+        .step-description-detailed {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA específico */
+        .service-specific-cta {
+            padding: var(--space-2xl) 0;
+            text-align: center;
+        }
+        
+        .service-cta-card {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .service-cta-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: var(--space-md);
+        }
+        
+        .service-cta-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service-cta-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service-cta-feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.95rem;
+        }
+        
+        .service-cta-feature i {
+            color: white;
+        }
+        
+        .btn-service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-2xl);
+            background: white;
+            color: var(--color-primary);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn-service-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Botón volver a servicios */
+        .back-to-services {
+            text-align: center;
+            margin-top: var(--space-2xl);
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: transparent;
+            color: var(--color-text);
+            border: 2px solid var(--color-surface-light);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .service-section-header,
+        .what-is-content,
+        .for-who-content,
+        .problems-grid,
+        .difference-content,
+        .process-steps-detailed,
+        .service-cta-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .service-section-header.visible,
+        .what-is-content.visible,
+        .for-who-content.visible,
+        .problems-grid.visible,
+        .difference-content.visible,
+        .process-steps-detailed.visible,
+        .service-cta-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .for-who-item,
+        .problem-card,
+        .difference-point,
+        .process-step-detailed {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .for-who-item.visible,
+        .problem-card.visible,
+        .difference-point.visible,
+        .process-step-detailed.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Elementos de construcción -->
+    <div class="construction-lines" id="construction-lines"></div>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scroll-indicator">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Header Minimalista -->
+    <header class="header" id="header">
+        <div class="container">
+            <!-- Logo limpio -->
+            <a href="../index.html" class="logo">
+                <div class="logo-symbol">
+                    <span class="d">D</span>
+                    <span class="t">T</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">DTech</span>
+                    <span class="logo-accent">Revolution</span>
+                </div>
+            </a>
+            
+            <!-- Navegación Desktop -->
+            <nav class="nav">
+                <ul>
+                    <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="../servicios.html" class="nav-link active">Servicios</a></li>
+                    <li><a href="../proceso.html" class="nav-link">Cómo trabajamos</a></li>
+                    <li><a href="../proyectos.html" class="nav-link">Proyectos</a></li>
+                    <li><a href="../nosotros.html" class="nav-link">Sobre DTech</a></li>
+                    <li><a href="../contacto.html" class="nav-link nav-cta">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Hero específico del servicio -->
+    <section class="service-specific-hero">
+        <div class="container">
+            <div class="service-hero-content">
+                <div class="service-hero-text">
+                    <div class="service-breadcrumb">
+                        <a href="../servicios.html">Servicios</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Software a Medida</span>
+                    </div>
+                    
+                    <h1 class="service-main-title">Software <span class="accent">a Medida</span></h1>
+                    
+                    <p class="service-subtitle">La solución exacta para procesos únicos</p>
+                    
+                    <p class="service-hero-description">
+                        Sistemas personalizados que se adaptan perfectamente a tus flujos de trabajo específicos. 
+                        No modificamos plantillas; construimos desde cero pensando en tu eficiencia y crecimiento.
+                    </p>
+                    
+                    <a href="#consulta" class="btn btn-primary">
+                        <span class="btn-text">Quiero una consulta gratuita</span>
+                        <i class="fas fa-calendar-check"></i>
+                    </a>
+                </div>
+                
+                <div class="service-hero-visual">
+                    <div class="service-hero-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="service-hero-number">01</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: ¿Qué es? -->
+    <section class="service-what-is">
+        <div class="container">
+            <div class="service-section-header">
+                <h2 class="service-section-title">¿Qué es el <span class="accent">Software a Medida</span>?</h2>
+                <p class="service-section-subtitle">No es lo mismo que software estándar. Te explicamos por qué.</p>
+            </div>
+            
+            <div class="what-is-content">
+                <div class="what-is-text">
+                    <p>
+                        El Software a Medida es <strong>la solución tecnológica diseñada específicamente para tu negocio</strong>. 
+                        No adaptas tus procesos a un programa existente; el programa se adapta a tus procesos.
+                    </p>
+                    
+                    <p>
+                        Imagina tener un sistema que entiende exactamente cómo trabajas, que automatiza tus tareas 
+                        repetitivas, que integra toda tu información y que crece al mismo ritmo que tu negocio.
+                    </p>
+                </div>
+                
+                <div class="what-is-highlight">
+                    <p>
+                        "No vendemos software. Vendemos eficiencia, control y crecimiento."
+                    </p>
+                </div>
+                
+                <div class="what-is-text">
+                    <p>
+                        Cada línea de código, cada función, cada interfaz está pensada para resolver 
+                        <strong>tus problemas específicos</strong>, no los problemas genéricos de una industria.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: ¿Para quién es? -->
+    <section class="service-for-who">
+        <div class="container">
+            <div class="service-section-header">
+                <h2 class="service-section-title">¿Para quién es <span class="accent">ideal</span>?</h2>
+                <p class="service-section-subtitle">Si te identificas con alguno de estos perfiles, este servicio es para ti.</p>
+            </div>
+            
+            <div class="for-who-content">
+                <div class="for-who-visual">
+                    <div class="for-who-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <p style="color: var(--color-text-secondary); max-width: 300px; margin: 0 auto;">
+                        Este servicio está diseñado para negocios que buscan <strong>eficiencia real</strong>, no solo tecnología.
+                    </p>
+                </div>
+                
+                <div class="for-who-list">
+                    <div class="for-who-item">
+                        <i class="fas fa-building"></i>
+                        <div>
+                            <h4>Empresas con procesos únicos</h4>
+                            <p>Negocios cuyas operaciones no encajan en soluciones estándar del mercado. Si tu forma de trabajar es diferente, necesitas software diferente.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="for-who-item">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h4>Negocios en crecimiento rápido</h4>
+                            <p>Startups y PyMEs que están escalando y necesitan sistemas que crezcan con ellas, sin limitaciones técnicas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="for-who-item">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h4>Equipos que buscan ventaja competitiva</h4>
+                            <p>Empresas que quieren diferenciarse a través de tecnología exclusiva que optimice sus operaciones clave.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Problemas que resuelve -->
+    <section class="service-problems">
+        <div class="container">
+            <div class="service-section-header">
+                <h2 class="service-section-title">¿Qué problemas <span class="accent">resuelve</span>?</h2>
+                <p class="service-section-subtitle">Soluciones concretas para dolores reales de negocio.</p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <h3 class="problem-title">Procesos lentos y manuales</h3>
+                    <p class="problem-description">Operaciones que consumen horas valiosas en tareas repetitivas que podrían automatizarse fácilmente.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="problem-title">Errores humanos recurrentes</h3>
+                    <p class="problem-description">Mistakes en datos, cálculos o procesos que cuestan tiempo y dinero corregir constantemente.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3 class="problem-title">Sistemas desconectados</h3>
+                    <p class="problem-description">Información dispersa en múltiples plataformas que no "hablan" entre sí, creando silos de datos.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="problem-title">Falta de visibilidad</h3>
+                    <p class="problem-description">No poder ver en tiempo real qué está pasando en tu negocio, tomando decisiones con datos desactualizados.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="problem-title">Dependencia de personas</h3>
+                    <p class="problem-description">Procesos que solo una persona sabe hacer, creando vulnerabilidad operativa para tu negocio.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h3 class="problem-title">Limitaciones de crecimiento</h3>
+                    <p class="problem-description">Sistemas que colapsan cuando tu negocio crece, obligándote a cambiar de plataforma constantemente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Nuestra diferencia -->
+    <section class="service-difference">
+        <div class="container">
+            <div class="service-section-header">
+                <h2 class="service-section-title">Nuestra <span class="accent">diferencia</span></h2>
+                <p class="service-section-subtitle">Por qué elegir DTechRevolution para tu software personalizado.</p>
+            </div>
+            
+            <div class="difference-content">
+                <div class="difference-text">
+                    <p>
+                        En DTechRevolution no simplemente "programamos". <strong>Analizamos, diseñamos y construimos</strong> 
+                        pensando en el futuro de tu negocio. Cada decisión técnica tiene un propósito estratégico.
+                    </p>
+                </div>
+                
+                <div class="difference-points">
+                    <div class="difference-point">
+                        <h4>Análisis profundo primero</h4>
+                        <p>Dedicamos tiempo a entender tus procesos antes de escribir la primera línea de código. No asumimos, investigamos.</p>
+                    </div>
+                    
+                    <div class="difference-point">
+                        <h4>Arquitectura escalable</h4>
+                        <p>Construimos sistemas pensando en tu crecimiento. Tu software no será obsoleto cuando tu negocio se expanda.</p>
+                    </div>
+                    
+                    <div class="difference-point">
+                        <h4>Código limpio y mantenible</h4>
+                        <p>Escribimos código que otros programadores pueden entender y modificar. No creamos "cajas negras" imposibles de mantener.</p>
+                    </div>
+                    
+                    <div class="difference-point">
+                        <h4>Soporte continuo</h4>
+                        <p>No desaparecemos después de la entrega. Somos tu socio tecnológico a largo plazo, no un proveedor temporal.</p>
+                    </div>
+                </div>
+                
+                <div class="difference-text">
+                    <p>
+                        <strong>No somos la opción más barata del mercado</strong>, y eso es intencional. 
+                        Somos la opción que construye sistemas que duran, que evolucionan y que realmente 
+                        resuelven problemas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección: Nuestro proceso -->
+    <section class="service-process">
+        <div class="container">
+            <div class="service-section-header">
+                <h2 class="service-section-title">Cómo lo <span class="accent">hacemos</span></h2>
+                <p class="service-section-subtitle">Metodología clara, resultados predecibles.</p>
+            </div>
+            
+            <div class="process-steps-detailed">
+                <div class="process-step-detailed">
+                    <div class="step-number-detailed">01</div>
+                    <h3 class="step-title-detailed">Descubrimiento</h3>
+                    <p class="step-description-detailed">Entrevistas profundas para entender tus procesos, dolores y objetivos.</p>
+                </div>
+                
+                <div class="process-step-detailed">
+                    <div class="step-number-detailed">02</div>
+                    <h3 class="step-title-detailed">Diseño</h3>
+                    <p class="step-description-detailed">Prototipos y arquitectura técnica validados contigo antes de construir.</p>
+                </div>
+                
+                <div class="process-step-detailed">
+                    <div class="step-number-detailed">03</div>
+                    <h3 class="step-title-detailed">Construcción</h3>
+                    <p class="step-description-detailed">Desarrollo iterativo con entregas parciales y feedback constante.</p>
+                </div>
+                
+                <div class="process-step-detailed">
+                    <div class="step-number-detailed">04</div>
+                    <h3 class="step-title-detailed">Implementación</h3>
+                    <p class="step-description-detailed">Despliegue, capacitación y acompañamiento en la transición.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA específico -->
+    <section class="service-specific-cta" id="consulta">
+        <div class="container">
+            <div class="service-cta-card">
+                <h2 class="service-cta-title">¿Listo para optimizar tus procesos?</h2>
+                
+                <p class="service-cta-description">
+                    Agenda una consulta estratégica gratuita de 45 minutos. Analizaremos tus 
+                    procesos actuales y te mostraremos exactamente cómo el software a medida 
+                    puede transformar tu eficiencia operativa.
+                </p>
+                
+                <div class="service-cta-features">
+                    <div class="service-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sin compromiso</span>
+                    </div>
+                    <div class="service-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Análisis inicial de viabilidad</span>
+                    </div>
+                    <div class="service-cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Propuesta preliminar en 48h</span>
+                    </div>
+                </div>
+                
+                <a href="../contacto.html?service=software-medida" class="btn-service-cta">
+                    <span>Quiero mi consulta gratuita</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="back-to-services">
+                <a href="../servicios.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Ver todos los servicios</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <div class="logo-symbol">
+                            <span class="d">D</span>
+                            <span class="t">T</span>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">DTech</span>
+                            <span class="logo-accent">Revolution</span>
+                        </div>
+                    </a>
+                    
+                    <p class="footer-tagline">
+                        Pensamos. Luego construimos.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul>
+                        <li><a href="../index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="../servicios.html" class="footer-link">Servicios</a></li>
+                        <li><a href="../proceso.html" class="footer-link">Cómo trabajamos</a></li>
+                        <li><a href="../proyectos.html" class="footer-link">Proyectos</a></li>
+                        <li><a href="../nosotros.html" class="footer-link">Sobre DTech</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul>
+                        <li><a href="software-medida.html" class="footer-link active">Software a Medida</a></li>
+                        <li><a href="desarrollo-web.html" class="footer-link">Desarrollo Web</a></li>
+                        <li><a href="apps-moviles.html" class="footer-link">Apps Móviles</a></li>
+                        <li><a href="backend-datos.html" class="footer-link">Backend & Datos</a></li>
+                        <li><a href="estrategia-visual.html" class="footer-link">Estrategia Visual</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contacto</h4>
+                    <a href="mailto:hola@dtechrevolution.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        hola@dtechrevolution.com
+                    </a>
+                    <a href="https://wa.me/5215512345678" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="tel:+525512345678" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        +52 55 1234 5678
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 DTechRevolution. Todos los derechos reservados.</p>
+                <p class="motto">Tecnología con propósito.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+                <a href="../index.html" class="logo">
+                    <div class="logo-symbol">
+                        <span class="d">D</span>
+                        <span class="t">T</span>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">DTech</span>
+                        <span class="logo-accent">Revolution</span>
+                    </div>
+                </a>
+                
+                <button class="menu-close" aria-label="Cerrar menú" id="menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="../index.html" class="mobile-link">Inicio</a></li>
+                    <li><a href="../servicios.html" class="mobile-link active">Servicios</a></li>
+                    <li><a href="../proceso.html" class="mobile-link">Cómo trabajamos</a></li>
+                    <li><a href="../proyectos.html" class="mobile-link">Proyectos</a></li>
+                    <li><a href="../nosotros.html" class="mobile-link">Sobre DTech</a></li>
+                    <li><a href="../contacto.html" class="mobile-link mobile-cta">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    
+    <!-- Script para animaciones específicas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animaciones para la página específica
+            function animateServicePage() {
+                const sections = document.querySelectorAll('.service-section-header, .what-is-content, .for-who-content, .problems-grid, .difference-content, .process-steps-detailed, .service-cta-card');
+                const items = document.querySelectorAll('.for-who-item, .problem-card, .difference-point, .process-step-detailed');
+                
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    
+                    if (rect.top <= windowHeight * 0.85) {
+                        section.classList.add('visible');
+                    }
+                });
+                
+                items.forEach((item, index) => {
+                    const rect = item.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    
+                    if (rect.top <= windowHeight * 0.85) {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 100); // Delay escalonado
+                    }
+                });
+            }
+            
+            // Animar hero inmediatamente
+            setTimeout(() => {
+                const heroText = document.querySelector('.service-hero-text');
+                const heroVisual = document.querySelector('.service-hero-visual');
+                if (heroText) heroText.style.opacity = '1';
+                if (heroVisual) heroVisual.style.opacity = '1';
+            }, 300);
+            
+            window.addEventListener('scroll', animateServicePage);
+            animateServicePage(); // Ejecutar una vez al cargar
+            
+            // Actualizar breadcrumb activo
+            const currentPageLink = document.querySelector('.footer-links .footer-link.active');
+            if (currentPageLink) {
+                currentPageLink.style.color = 'var(--color-primary)';
+                currentPageLink.style.fontWeight = '600';
+            }
+        });
+    </script>
+</body>
+</html>

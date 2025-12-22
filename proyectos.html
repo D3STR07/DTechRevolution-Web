@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | DTechRevolution</title>
+    <meta name="description" content="Casos reales donde resolvemos problemas con tecnología inteligente.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://api.dicebear.com/7.x/shapes/svg?seed=DTech">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* PALETA MEJORADA - Verde + Morado elegante */
+        :root {
+            --verde-suave: #10b981;
+            --verde-oscuro: #059669;
+            --morado-suave: #8b5cf6;
+            --morado-oscuro: #7c3aed;
+            --fondo-oscuro: #0f172a;
+            --fondo-card: #1e293b;
+            --texto: #f8fafc;
+            --texto-secundario: #cbd5e1;
+            --borde: #334155;
+        }
+        
+        /* RESET Y ESTILOS GENERALES */
+        body.dark-mode {
+            background-color: var(--fondo-oscuro);
+            color: var(--texto);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER CORREGIDO - IGUAL QUE LOS OTROS */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--borde);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* LOGO - IGUAL QUE LOS OTROS */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--texto);
+        }
+        
+        .logo-symbol {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-main {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .logo-accent {
+            font-weight: 600;
+            color: var(--verde-suave);
+            font-size: 0.9rem;
+        }
+        
+        /* NAVEGACIÓN - IGUAL QUE LOS OTROS */
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            color: var(--texto-secundario);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--texto);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            border-radius: 2px;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 6px;
+            margin-left: 10px;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        /* HERO SIMPLE */
+        .projects-hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .projects-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--texto), var(--verde-suave));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--texto-secundario);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        /* ESTADÍSTICAS SIMPLES */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--texto-secundario);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        
+        /* FILTROS MINIMALISTAS */
+        .projects-filter {
+            padding: 40px 0;
+            position: sticky;
+            top: 70px;
+            background: var(--fondo-oscuro);
+            z-index: 100;
+            border-bottom: 1px solid var(--borde);
+        }
+        
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: transparent;
+            border: 1px solid var(--borde);
+            border-radius: 25px;
+            color: var(--texto-secundario);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--verde-suave);
+            color: var(--verde-suave);
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            border-color: transparent;
+            color: white;
+        }
+        
+        /* GRID DE PROYECTOS - SIMPLE Y ELEGANTE */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+        
+        /* TARJETA DE PROYECTO - LIMPIA */
+        .project-card {
+            background: var(--fondo-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--borde);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--verde-suave);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-category {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--verde-suave);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .project-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--texto);
+        }
+        
+        .project-description {
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .project-metrics {
+            display: flex;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--borde);
+        }
+        
+        .metric {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .metric-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--texto-secundario);
+        }
+        
+        /* SECCIÓN FILOSOFÍA */
+        .philosophy {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(139, 92, 246, 0.05));
+            margin: 60px 0;
+            border-radius: 12px;
+        }
+        
+        .philosophy-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--texto);
+        }
+        
+        .philosophy-text {
+            font-size: 1.1rem;
+            color: var(--texto-secundario);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+        
+        .philosophy-quote {
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--texto);
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            border-left: 3px solid var(--verde-suave);
+            background: rgba(16, 185, 129, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* CTA FINAL */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--texto);
+        }
+        
+        .cta-title span {
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .cta-text {
+            font-size: 1.1rem;
+            color: var(--texto-secundario);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+        
+        /* MODAL MEJORADO - SIMPLE Y ELEGANTE */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        .project-modal.active {
+            display: block;
+        }
+        
+        .modal-content {
+            background: var(--fondo-card);
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--borde);
+            position: relative;
+            animation: modalSlide 0.3s ease;
+        }
+        
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-close i {
+            color: var(--texto);
+            font-size: 1.2rem;
+        }
+        
+        .modal-header {
+            padding: 40px 40px 0;
+        }
+        
+        .modal-category {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--texto);
+        }
+        
+        .modal-subtitle {
+            font-size: 1.1rem;
+            color: var(--texto-secundario);
+            margin-bottom: 30px;
+        }
+        
+        .modal-image {
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-body {
+            padding: 40px;
+        }
+        
+        .modal-section {
+            margin-bottom: 40px;
+        }
+        
+        .modal-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .modal-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--texto);
+        }
+        
+        .modal-section h3 i {
+            color: var(--verde-suave);
+        }
+        
+        .modal-section p {
+            color: var(--texto-secundario);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .modal-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .modal-stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid var(--borde);
+        }
+        
+        .modal-stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .modal-stat-label {
+            font-size: 0.9rem;
+            color: var(--texto-secundario);
+            margin-top: 5px;
+        }
+        
+        /* FOOTER SIMPLE */
+        .footer {
+            background: var(--fondo-card);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--borde);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .footer-tagline {
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--texto-secundario);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--verde-suave), var(--morado-suave));
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--texto);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-link {
+            color: var(--texto-secundario);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--verde-suave);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--borde);
+            color: var(--texto-secundario);
+            font-size: 0.9rem;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .modal-content {
+                margin: 20px;
+            }
+            
+            .modal-header,
+            .modal-body {
+                padding: 30px 20px;
+            }
+            
+            .modal-image {
+                height: 250px;
+            }
+            
+            .modal-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                display: none;
+            }
+        }
+        
+        /* ANIMACIÓN DE ENTRADA */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Header corregido -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-symbol">DT</div>
+                <div class="logo-text">
+                    <span class="logo-main">DTech</span>
+                    <span class="logo-accent">Revolution</span>
+                </div>
+            </a>
+            
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                    <li><a href="proceso.html" class="nav-link">Cómo trabajamos</a></li>
+                    <li><a href="proyectos.html" class="nav-link active">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Sobre DTech</a></li>
+                    <li><a href="contacto.html" class="nav-link nav-cta">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1 class="hero-title animate-in">Proyectos que marcan la diferencia</h1>
+            <p class="hero-subtitle animate-in delay-1">
+                Cada proyecto cuenta una historia de transformación. Aquí mostramos cómo resolvemos problemas reales con soluciones digitales inteligentes.
+            </p>
+            
+            <div class="stats animate-in delay-2">
+                <div class="stat-item">
+                    <div class="stat-number">24+</div>
+                    <div class="stat-label">Proyectos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Satisfacción</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Industrias</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="projects-filter">
+        <div class="container">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Móvil</button>
+                <button class="filter-btn" data-filter="system">Sistemas</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid de proyectos -->
+    <section class="container">
+        <div class="projects-grid" id="projects-grid">
+            <!-- Proyecto 1 -->
+            <div class="project-card animate-in" data-category="system" data-project="1">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Sistema Dental">
+                    <span class="project-badge">Completado</span>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Sistema a medida</span>
+                    <h3 class="project-title">Clínica Dental Moderna</h3>
+                    <p class="project-description">
+                        Transformación digital completa de una clínica dental tradicional a un centro médico digital con gestión integral.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">60%</span>
+                            <span class="metric-label">Menos tiempo admin</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">0</span>
+                            <span class="metric-label">Citas perdidas</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">90%</span>
+                            <span class="metric-label">Menos errores</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="project-card animate-in delay-1" data-category="mobile" data-project="2">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1174&q=80" alt="App Restaurante">
+                    <span class="project-badge">En producción</span>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">App Móvil</span>
+                    <h3 class="project-title">Experiencia Gastronómica</h3>
+                    <p class="project-description">
+                        App que revoluciona la experiencia en restaurantes con pedidos en mesa, menú digital y fidelización.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">40%</span>
+                            <span class="metric-label">Más pedidos</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">90%</span>
+                            <span class="metric-label">Menos errores</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">25%</span>
+                            <span class="metric-label">Recurrencia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="project-card animate-in delay-2" data-category="web" data-project="3">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80" alt="Plataforma Educativa">
+                    <span class="project-badge">Propio</span>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Plataforma Web</span>
+                    <h3 class="project-title">AprendeHoy Educación</h3>
+                    <p class="project-description">
+                        Plataforma educativa que democratiza el acceso a cursos de calidad en español con comunidad activa.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">2,500+</span>
+                            <span class="metric-label">Estudiantes</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">65%</span>
+                            <span class="metric-label">Completación</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">4.8</span>
+                            <span class="metric-label">Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 4 -->
+            <div class="project-card animate-in" data-category="ecommerce" data-project="4">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="E-commerce">
+                    <span class="project-badge">Completado</span>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">E-commerce</span>
+                    <h3 class="project-title">Tienda Online Premium</h3>
+                    <p class="project-description">
+                        Plataforma de comercio electrónico con experiencia de compra optimizada y sistema de recomendaciones inteligente.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">300%</span>
+                            <span class="metric-label">Más ventas</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">35%</span>
+                            <span class="metric-label">Menos abandonos</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">4.9</span>
+                            <span class="metric-label">Satisfacción</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 5 -->
+            <div class="project-card animate-in delay-1" data-category="system" data-project="5">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Inventario">
+                    <span class="project-badge">Conceptual</span>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Sistema a medida</span>
+                    <h3 class="project-title">Gestión de Inventario</h3>
+                    <p class="project-description">
+                        Sistema inteligente de control de stock con predicciones de demanda y optimización automática de compras.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">70%</span>
+                            <span class="metric-label">Menos tiempo</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">30%</span>
+                            <span class="metric-label">Menos obsolescencia</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">100%</span>
+                            <span class="metric-label">Precisión</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 6 -->
+            <div class="project-card animate-in delay-2" data-category="web" data-project="6">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Dashboard">
+                    <span class="project-badge">Completado</span>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Dashboard Analytics</span>
+                    <h3 class="project-title">Panel de Control Empresarial</h3>
+                    <p class="project-description">
+                        Dashboard interactivo para toma de decisiones con visualización de datos en tiempo real y reportes automatizados.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">80%</span>
+                            <span class="metric-label">Dec. más rápidas</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">50%</span>
+                            <span class="metric-label">Menos reportes</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">95%</span>
+                            <span class="metric-label">Satisfacción</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filosofía -->
+    <section class="philosophy">
+        <div class="container">
+            <h2 class="philosophy-title">Más que código</h2>
+            <p class="philosophy-text">
+                En DTech no solo desarrollamos software. Resolvemos problemas complejos con soluciones elegantes y efectivas. 
+                Cada proyecto representa una historia de transformación digital donde convertimos desafíos en oportunidades.
+            </p>
+            <div class="philosophy-quote">
+                "El verdadero valor no está en lo que construimos, sino en lo que habilitamos que otros puedan lograr."
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">¿Listo para transformar <span>tu negocio</span>?</h2>
+            <p class="cta-text">
+                Hagamos realidad tu próximo proyecto. Conversemos sobre cómo podemos crear algo extraordinario juntos.
+            </p>
+            <a href="contacto.html" class="cta-button">
+                <span>Iniciar proyecto</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-symbol">DT</div>
+                        <div class="logo-text">
+                            <span class="logo-main">DTech</span>
+                            <span class="logo-accent">Revolution</span>
+                        </div>
+                    </a>
+                    <p class="footer-tagline">Tecnología con propósito</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul>
+                        <li><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="servicios.html" class="footer-link">Servicios</a></li>
+                        <li><a href="proceso.html" class="footer-link">Proceso</a></li>
+                        <li><a href="proyectos.html" class="footer-link active">Proyectos</a></li>
+                        <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:hola@dtechrevolution.com" class="footer-link">hola@dtechrevolution.com</a></li>
+                        <li><a href="tel:+525512345678" class="footer-link">+52 55 1234 5678</a></li>
+                        <li><a href="https://wa.me/5215512345678" class="footer-link">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 DTechRevolution. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="project-modal" id="project-modal">
+        <div class="modal-content">
+            <div class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </div>
+            
+            <div class="modal-header">
+                <span class="modal-category" id="modal-category">Sistema a medida</span>
+                <h2 class="modal-title" id="modal-title">Clínica Dental Moderna</h2>
+                <p class="modal-subtitle" id="modal-subtitle">Transformación digital de gestión médica</p>
+            </div>
+            
+            <div class="modal-image">
+                <img id="modal-image" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="">
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-exclamation-circle"></i> El desafío</h3>
+                    <p id="modal-challenge">
+                        Una clínica dental establecida operaba con sistemas manuales obsoletos: registros en papel propensos a pérdidas, agenda física que generaba conflictos de horarios, facturación manual con errores recurrentes y falta de comunicación efectiva con pacientes.
+                    </p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-lightbulb"></i> Nuestra solución</h3>
+                    <p id="modal-solution">
+                        Desarrollamos una plataforma web completa que digitalizó toda la operación. Implementamos agenda inteligente con bloqueo automático, historiales médicos digitales, sistema de recordatorios multicanal y módulo de facturación integrado con contabilidad.
+                    </p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-line"></i> Resultados</h3>
+                    <p id="modal-results">
+                        La implementación transformó completamente la operación de la clínica. Los tiempos administrativos se redujeron significativamente, eliminando prácticamente los errores humanos y mejorando la experiencia del paciente.
+                    </p>
+                    
+                    <div class="modal-stats" id="modal-stats">
+                        <!-- Se llenará con JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Datos de proyectos
+            const projects = {
+                1: {
+                    category: "Sistema a medida",
+                    title: "Clínica Dental Moderna",
+                    subtitle: "Transformación digital de gestión médica",
+                    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+                    challenge: "Una clínica dental establecida operaba con sistemas manuales obsoletos: registros en papel propensos a pérdidas, agenda física que generaba conflictos de horarios, facturación manual con errores recurrentes y falta de comunicación efectiva con pacientes.",
+                    solution: "Desarrollamos una plataforma web completa que digitalizó toda la operación. Implementamos agenda inteligente con bloqueo automático, historiales médicos digitales, sistema de recordatorios multicanal y módulo de facturación integrado con contabilidad.",
+                    results: "La implementación transformó completamente la operación de la clínica. Los tiempos administrativos se redujeron significativamente, eliminando prácticamente los errores humanos y mejorando la experiencia del paciente.",
+                    stats: [
+                        { value: "60%", label: "Menos tiempo administrativo" },
+                        { value: "0", label: "Citas perdidas por olvido" },
+                        { value: "90%", label: "Menos errores en facturación" }
+                    ]
+                },
+                2: {
+                    category: "App Móvil",
+                    title: "Experiencia Gastronómica",
+                    subtitle: "Revolución digital en restaurantes",
+                    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1174&q=80",
+                    challenge: "El restaurante enfrentaba largas esperas, errores en pedidos, dificultad para gestionar reservas y falta de un programa de fidelización digital.",
+                    solution: "Creamos una app nativa para iOS y Android con menú digital, pedidos directos a cocina, reservas inteligentes y programa de fidelización integrado.",
+                    results: "La app revolucionó la operación del restaurante, mejorando la experiencia del cliente y optimizando los procesos internos.",
+                    stats: [
+                        { value: "40%", label: "Más pedidos por mesa" },
+                        { value: "90%", label: "Menos errores en órdenes" },
+                        { value: "25%", label: "Más clientes recurrentes" }
+                    ]
+                },
+                3: {
+                    category: "Plataforma Web",
+                    title: "AprendeHoy Educación",
+                    subtitle: "Democratización del aprendizaje",
+                    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80",
+                    challenge: "Falta de plataformas educativas en español con buen diseño UX y comunidad activa.",
+                    solution: "Desarrollamos una plataforma con lecciones progresivas, pruebas interactivas, seguimiento de avance y comunidad de apoyo.",
+                    results: "La plataforma democratizó el acceso a educación de calidad, con altas tasas de finalización y satisfacción.",
+                    stats: [
+                        { value: "2,500+", label: "Estudiantes activos" },
+                        { value: "65%", label: "Tasa de finalización" },
+                        { value: "4.8/5", label: "Satisfacción general" }
+                    ]
+                }
+            };
+
+            // Elementos
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            const projectModal = document.getElementById('project-modal');
+            const modalClose = document.getElementById('modal-close');
+
+            // Filtrar proyectos
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Actualizar botón activo
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    
+                    // Filtrar tarjetas
+                    projectCards.forEach(card => {
+                        const category = card.dataset.category;
+                        
+                        if (filter === 'all' || filter === category) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Abrir modal
+            projectCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const projectId = this.dataset.project;
+                    const project = projects[projectId];
+                    
+                    if (project) {
+                        // Actualizar contenido del modal
+                        document.getElementById('modal-category').textContent = project.category;
+                        document.getElementById('modal-title').textContent = project.title;
+                        document.getElementById('modal-subtitle').textContent = project.subtitle;
+                        document.getElementById('modal-image').src = project.image;
+                        document.getElementById('modal-challenge').textContent = project.challenge;
+                        document.getElementById('modal-solution').textContent = project.solution;
+                        document.getElementById('modal-results').textContent = project.results;
+                        
+                        // Actualizar estadísticas
+                        const statsContainer = document.getElementById('modal-stats');
+                        statsContainer.innerHTML = '';
+                        project.stats.forEach(stat => {
+                            statsContainer.innerHTML += `
+                                <div class="modal-stat">
+                                    <div class="modal-stat-value">${stat.value}</div>
+                                    <div class="modal-stat-label">${stat.label}</div>
+                                </div>
+                            `;
+                        });
+                        
+                        // Mostrar modal
+                        projectModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            // Cerrar modal
+            modalClose.addEventListener('click', closeModal);
+            projectModal.addEventListener('click', function(e) {
+                if (e.target === projectModal) {
+                    closeModal();
+                }
+            });
+
+            // Cerrar con ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+
+            function closeModal() {
+                projectModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            // Animación al hacer scroll
+            function checkScroll() {
+                const elements = document.querySelectorAll('.animate-in, .delay-1, .delay-2');
+                
+                elements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.85 && !element.classList.contains('animated')) {
+                        element.classList.add('animated');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Ejecutar al cargar
+        });
+    </script>
+</body>
+</html>
