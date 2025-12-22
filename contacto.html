@@ -666,7 +666,7 @@
                         <!-- BOTONES GIGANTES QUE OCUPAN TODO EL ESPACIO -->
                         <div class="direct-contact-methods">
                             <!-- WhatsApp - TODO EL BOTÓN ES CLICKEABLE -->
-                            <a href="https://wa.me/5215512345678" target="_blank" class="contact-method-btn whatsapp-btn">
+                            <a href="https://wa.me/7713397406" target="_blank" class="contact-method-btn whatsapp-btn">
                                 <div class="method-icon whatsapp-icon">
                                     <i class="fab fa-whatsapp"></i>
                                 </div>
@@ -675,7 +675,7 @@
                                         WhatsApp
                                         <span class="method-arrow">→</span>
                                     </div>
-                                    <div class="method-detail">+52 55 1234 5678</div>
+                                    <div class="method-detail">+52 7713397406</div>
                                     <div class="method-note">Respuesta en minutos</div>
                                 </div>
                             </a>
@@ -690,13 +690,13 @@
                                         Llamada telefónica
                                         <span class="method-arrow">→</span>
                                     </div>
-                                    <div class="method-detail">+52 55 1234 5678</div>
+                                    <div class="method-detail">+52 7713397406</div>
                                     <div class="method-note">Lunes a viernes, 9am - 6pm</div>
                                 </div>
                             </a>
                             
                             <!-- Email - TODO EL BOTÓN ES CLICKEABLE -->
-                            <a href="mailto:hola@dtechrevolution.com?subject=Proyecto%20DTech&body=Hola%20DTech,%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20proyecto:" 
+                            <a href="mailto:dtechrevolutionmx@gmail.com?subject=Proyecto%20DTech&body=Hola%20DTech,%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20proyecto:" 
                                class="contact-method-btn email-btn">
                                 <div class="method-icon email-icon">
                                     <i class="fas fa-envelope"></i>
@@ -706,7 +706,7 @@
                                         Correo electrónico
                                         <span class="method-arrow">→</span>
                                     </div>
-                                    <div class="method-detail">hola@dtechrevolution.com</div>
+                                    <div class="method-detail">dtechrevolutionmx@gmail.com</div>
                                     <div class="method-note">Respuesta en menos de 24 horas</div>
                                 </div>
                             </a>
@@ -736,21 +736,26 @@
                         Cuéntanos tu idea con tranquilidad. Te leemos, analizamos y te contactamos 
                         con un plan claro. Perfecto para ideas en desarrollo.
                     </p>
-                    
-                    <form class="contact-form" id="contact-form">
+
+                    <!-- POR ESTA OTRA (agrega 'action', 'method' y el campo 'name') -->
+                    <form class="contact-form" action="https://formspree.io/f/mpqaoqyk" method="POST">
+                        <!-- Agrega este campo oculto para que Formspree sepa a dónde reenviar -->
+                        <input type="hidden" name="_replyto" value="dtechrevolutionmx@gmail.com">
+                        
+                        <!-- Tus campos actuales, pero CADA UNO debe tener un 'name' único -->
                         <div class="input-group">
                             <label class="input-label">¿Cómo te llamas?</label>
-                            <input type="text" class="form-input" placeholder="Tu nombre" required>
+                            <input type="text" class="form-input" name="nombre" placeholder="Tu nombre" required>
                         </div>
                         
                         <div class="input-group">
                             <label class="input-label">¿Cómo te contactamos?</label>
-                            <input type="text" class="form-input" placeholder="Correo o WhatsApp" required>
+                            <input type="text" class="form-input" name="contacto" placeholder="Correo o WhatsApp" required>
                         </div>
                         
                         <div class="input-group">
                             <label class="input-label">¿Qué idea o proyecto tienes?</label>
-                            <textarea class="form-input form-textarea" placeholder="Cuéntanos con tus palabras. No necesitas ser técnico, nosotros lo entendemos." required></textarea>
+                            <textarea class="form-input form-textarea" name="proyecto" placeholder="Cuéntanos con tus palabras..." required></textarea>
                         </div>
                         
                         <button type="submit" class="submit-btn">
@@ -767,46 +772,73 @@
             </div>
         </div>
     </section>
-    
-    <!-- Footer Completo -->
+
+    <!-- Footer -->
     <footer class="complete-footer">
         <div class="main-container">
-            <div class="footer-grid">
+            <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="index.html" class="header-logo">
-                        <div class="logo-icon">DT</div>
-                        <div>DTechRevolution</div>
+                    <a href="index.html" class="logo">
+                        <div class="logo-symbol">
+                            <span class="d">D</span>
+                            <span class="t">T</span>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">DTech</span>
+                            <span class="logo-accent">Revolution</span>
+                        </div>
                     </a>
-                    <p class="footer-motto">Tu lo imaginas, nosotros lo hacemos realidad</p>
-                    <p style="color: #94A3B8; margin-top: 15px; font-size: 0.9rem;">
-                        Ciudad de México<br>
-                        Disponibles de lunes a viernes, 9am - 6pm
+                    
+                    <p class="footer-tagline">
+                        Tú lo imaginas.
+                        Nosotros lo Hacemos Realidad.
                     </p>
+                    
+                    <!-- <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div> -->
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Navegación</h4>
+                    <h4 class="footer-title">Navegación</h4>
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="proceso.html">Proceso</a></li>
-                        <li><a href="proyectos.html">Proyectos</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="servicios.html" class="footer-link">Servicios</a></li>
+                        <li><a href="proceso.html" class="footer-link">Cómo trabajamos</a></li>
+                        <li><a href="proyectos.html" class="footer-link">Proyectos</a></li>
+                        <li><a href="nosotros.html" class="footer-link">Sobre DTech</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Contacto</h4>
+                    <h4 class="footer-title">Servicios</h4>
                     <ul>
-                        <li><a href="mailto:hola@dtechrevolution.com">hola@dtechrevolution.com</a></li>
-                        <li><a href="tel:+525512345678">+52 55 1234 5678</a></li>
-                        <li><a href="https://wa.me/5215512345678" target="_blank">WhatsApp</a></li>
+                        <li><a href="servicios.html#web" class="footer-link">Desarrollo Web</a></li>
+                        <li><a href="servicios.html#software" class="footer-link">Software a Medida</a></li>
+                        <li><a href="servicios.html#apps" class="footer-link">Apps Móviles</a></li>
+                        <li><a href="servicios.html#backend" class="footer-link">Backend & Datos</a></li>
+                        <li><a href="servicios.html#soporte" class="footer-link">Soporte</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contacto</h4>
+                    <a href="mailto:dtechrevolutionmx@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        dtechrevolutionmx@gmail.com
+                    </a>
+                    <a href="https://wa.me/7713397406" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2024 DTechRevolution. Pensamos. Luego construimos.</p>
+                <p class="copyright">© 2024 DTechRevolution. Todos los derechos reservados.</p>
+                <p class="motto">Tecnología con propósito.</p>
             </div>
         </div>
     </footer>
@@ -815,10 +847,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Formulario
-            const form = document.getElementById('contact-form');
+            const form = document.querySelector('.contact-form');
             if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
+                form.addEventListener('submit', function(e) {                   
                     const btn = form.querySelector('.submit-btn');
                     const original = btn.innerHTML;
                     
